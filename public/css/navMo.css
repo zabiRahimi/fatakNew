@@ -1,0 +1,43 @@
+.navMoContainer{height: 30px; display: flex;padding: 0 2px; background-color: #f5f5f5;border-radius: 3px;}
+.navMCI{margin-left: 3px;display: flex;align-items: center;}
+.navMCI i{font-size: 26px; }
+.navMCT{display: flex;align-items: center; font-size: 18px;}
+.menu_mobail_1{width: 100%; height: 100%;display: block; position: fixed; opacity: 0.6;top: 0;right: 0; background-color: #000; z-index: 333333300;color: slateblue;}
+.menu_mobail_2{z-index:  3333333004; width: 200px; height: 100%;background-color: #f2f2f2;position: fixed; top: 0; overflow: auto;right: 0; text-align: right;}
+.closeMenuMobail{width: 100%; height: 29px; padding: 0 7px 0 10px; margin: 5px 0 ;background-color: #dadada;display: flex;align-items: center;justify-content: space-between;}
+.closeMMRigth{display: flex;}
+.closeMMRI{}
+.closeMMRT{}
+.closeMMLeft{}
+.closeMMLeft button{background-color: inherit; border: none; cursor: pointer;font-size: 32px; color: #f60404;}
+.menuMobailUl{margin: 0;padding: 0 2px;display: flex;flex-flow: column;}
+.menuMobailUl li{list-style: none;}
+.menuMULi{display: flex;}
+.menuMULiHasSub{display: flex;flex-flow: column;}
+.menuMULHSUp{display: flex;justify-content: space-between;}
+.menuMobailUlSub{margin: 0; padding: 0 15px 0 0;display: none;flex-flow: column;}
+/* .menuMULiHasSub:hover .menuMobailUlSub{display: flex;} */
+
+ /* .close_menu_mobail span{float: right;} */
+.close_menu_mobail button{  background-color: inherit; border: none; cursor: pointer;font-size: 32px; color: #f60404; }
+.menu_mobail_2 i{position: relative; margin-left: 9px; top: 2px;}
+.menu_mobail_2 ul{position: relative; }
+
+/*.show_menu_mobail_1{display: block;}
+.show_menu_mobail_2{right: 0; transition: right 0.5s ease-in-out;}
+@media (max-width:575px) {
+.hide_overflow{overflow: hidden;}/*جهت پنهان کردن اسکرول تگ بادی */
+/* } */
+
+/* .menu_mobail_ul{width: 100%;padding: 0; background-color: #e8e8e8;}
+.menu_mobail_ul a{text-decoration: none;}
+.menu_mobail_ul li{width: 100%;list-style: none; color: #05609a;border-bottom: 1px solid #d0d0d0; padding:6px 7px 3px 6px;float: right;cursor: pointer; }
+.menu_mobail_ul li:hover{ background-color:#c9c9c9;color: #033f63; }
+.menu_mobail_ul li span{float: right;}
+.menu_mobail_ul li img{float: left;position: relative;top: 8px;}
+.menu_mobail_ul li > ul{width: 100%;padding: 0;display: none;background-color: #f5f5f5; float: right; }
+.menu_mobail_ul li > ul li:hover{background-color:#e2e2e2;  }
+@media (min-width:576px) {
+.menu_mobail_1 , .menu_mobail_2{display: none;}
+
+} */ 

@@ -6,3 +6,16 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+@import '~@fortawesome/fontawesome-free/scss/brands';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
+
+// component
+@import './header/index';
+@import './header/header';
+@import './header/slider';
+
+@import './nav/index';
+@import './nav/navPc';
+// @import './nav/navMo';
