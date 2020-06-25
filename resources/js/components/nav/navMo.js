@@ -2,35 +2,53 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import $ from "jquery";
 import { Link } from "react-router-dom";
+// #5f6f81
 class NavMo extends Component {
     showUlSub = (e) => {
         // document.getElementsByClassName('menuMobailUlSub').style.color = "blue";
         // var search_span = document.getElementsByClassName("menuMobailUlSub");
         // search_span[0].style.display = "flex";
         var getId='#'+e.currentTarget.getAttribute('id') + ' .menuMobailUlSub ';
-        $('.menuMobailUlSub').css("display", "none");
+        var getsortUp='#'+e.currentTarget.getAttribute('id') + ' .sortUp ';
+        var getsortDown='#'+e.currentTarget.getAttribute('id') + ' .sortDown ';
+        $(`.menuMobailUlSub:not(${getId})`).css({"display": "none"});
         // $(getId).css("display", "flex");
-        $(getId).toggle();
+        $(getId).toggle('slow');
+        $(getsortUp).toggle('slow');
+        $(getsortDown).toggle('slow');
+       
         //  var r =e.currentTarget.getAttribute('id')
         // alert(getId)
 
     }
+    openOrExitMenu=()=>{
+        $('.menuMobailOpacity').toggle('slow',function(e){
+             const u= $('.menuMobailOpacity').css('display');
+             if(u ==='block'){
+                 $('body').css({"overflow": "hidden"})
+             }
+             else{$('body').css({"overflow": "visible"})}
+        });
+        $('.menuMobailMenu').toggle('slow');
+    }
     render() {
         return (
             <div className="navMoContainer">
+                <div className="navMCButton" onClick={this.openOrExitMenu}>
                 <div className="navMCI"><i className="fas fa-bars"></i></div>
-                <div className="navMCT">منو</div>
-                <div className="menu_mobail_1"></div>
-                <div className="menu_mobail_2">
-
+                <div className="navMCT"> منو</div>
+                </div>
+                <div className="menuMobailOpacity" onClick={this.openOrExitMenu}></div>
+                
+                <div className="menuMobailMenu">
+                    
                     <div className="closeMenuMobail" >
                         <div className="closeMMRigth">
                             <div className="closeMMRI"><i className="fas fa-ellipsis-v"></i></div>
                             <div className="closeMMRT">منو</div>
                         </div>
                         <div className="closeMMLeft">
-                            {/* onClick="hide_menu_mobail()" */}
-                            <button ><span aria-hidden="true">&times;</span></button>
+                            <button onClick={this.openOrExitMenu}><span aria-hidden="true">&times;</span></button>
                         </div>
                     </div>
 
@@ -38,7 +56,7 @@ class NavMo extends Component {
                         <li className="menuMULi">
                             <div className="">
                                 <i className="far fa-window-maximize"></i>
-                                <Link>خانه</Link>
+                                <Link to="">خانه</Link>
                             </div>
                         </li>
                         <li className="menuMULiHasSub" id='orderLi' onClick={this.showUlSub}>
@@ -49,14 +67,14 @@ class NavMo extends Component {
                                     <span>سفارش</span>
                                 </div>
                                 <div className="menuMULHSULeft">
-                                    <img src="./images/imageWeb/sort1.png" />
+                                    <img className="sortDown" src="./images/imageWeb/sort1.png" />
                                 </div>
                             </div>
                             <ul className="menuMobailUlSub">
-                                <li><Link>ثبت سفارش</Link></li>
-                                <li><Link>پیگیری سفارش</Link></li>
-                                <li><Link>پیگیری خرید</Link></li>
-                                <li><Link>راهنما</Link></li>
+                                <li><Link to="">ثبت سفارش</Link></li>
+                                <li><Link to="">پیگیری سفارش</Link></li>
+                                <li><Link to="">پیگیری خرید</Link></li>
+                                <li><Link to="">راهنما</Link></li>
                             </ul>
                         </li>
 
@@ -67,14 +85,16 @@ class NavMo extends Component {
                                     <span>مدیریت کانال و گروه</span>
                                 </div>
                                 <div className="menuMULHSULeft">
-                                    <img src="./images/imageWeb/sort1.png" />
+                                    <i className="fas fa-comments sortUp"></i>
+                                    <img className="sortDown" src="./images/imageWeb/sort1.png" />
+                                    
                                 </div>
                             </div>
 
                             <ul className="menuMobailUlSub">
-                                <li><Link>ورود</Link></li>
-                                <li><Link>ثبت نام</Link></li>
-                                <li><Link>راهنما</Link></li>
+                                <li><Link to="">ورود</Link></li>
+                                <li><Link to="">ثبت نام</Link></li>
+                                <li><Link to="">راهنما</Link></li>
                             </ul>
                         </li>
 
@@ -85,13 +105,13 @@ class NavMo extends Component {
                                     <span>مدیریت فروشندگان</span>
                                 </div>
                                 <div className="menuMULHSULeft">
-                                    <img src="./images/imageWeb/sort1.png" />
+                                    <img className="sortDown" src="./images/imageWeb/sort1.png" />
                                 </div>
                             </div>
                             <ul className="menuMobailUlSub">
-                                <li><Link>ورود</Link></li>
-                                <li><Link>ثبت نام</Link></li>
-                                <li><Link>راهنما</Link></li>
+                                <li><Link to="">ورود</Link></li>
+                                <li><Link to="">ثبت نام</Link></li>
+                                <li><Link to="">راهنما</Link></li>
                             </ul>
                         </li>
 
@@ -99,28 +119,28 @@ class NavMo extends Component {
 
                             <div className="">
                                 <i className="fas fa-info-circle"></i>
-                                <Link>درباره ما</Link>
+                                <Link to="">درباره ما</Link>
                             </div>
                         </li>
 
                         <li className="menuMobailUl">
-                            <i className="fas fa-phone"></i> <Link>ارتباط با ما</Link>
+                            
                             <div className="">
-                                <i className="fas fa-info-circle"></i>
-                                <Link>درباره ما</Link>
+                                <i className="fas fa-phone"></i>
+                                <Link to="">ارتباط با ما</Link>
                             </div>
                         </li>
                         <li className="menuMobailUl">
                             <div className="">
                                 <i className="fas fa-balance-scale"></i>
-                                <Link>قوانین و مقرارت</Link>
+                                <Link to="">قوانین و مقرارت</Link>
                             </div>
 
                         </li>
                         <li className="menuMobailUl">
                             <div className="">
                                 <i className="fas fa-gavel"></i>
-                                <Link>ثبت شکایت</Link>
+                                <Link to="">ثبت شکایت</Link>
                             </div>
                         </li>
                         <li className="menuMULiHasSub" id='instructLi' onClick={this.showUlSub}>
@@ -130,7 +150,7 @@ class NavMo extends Component {
                                     <span>راهنما</span>
                                 </div>
                                 <div className="menuMULHSULeft">
-                                    <img src="./images/imageWeb/sort1.png" />
+                                    <img className="sortDown" src="./images/imageWeb/sort1.png" />
                                 </div>
                             </div>
 

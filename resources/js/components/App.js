@@ -9,7 +9,7 @@ import Footer from './footer/index.js';
 
 class App extends Component {
     componentDidMount() {
-        Pusher.logToConsole = true;
+        // Pusher.logToConsole = true;
     }
     render() {
     return (
