@@ -14,7 +14,7 @@
 .closeMMLeft button{background-color: inherit; border: none; cursor: pointer;font-size: 32px; color: #f60404;}
 .menuMobailUl{margin: 0;padding: 0 2px;display: flex;flex-flow: column;}
 .menuMobailUl li{ padding: 5px 0;border-bottom: 1px solid  #e8ecf1; list-style: none;color:#5f6f81}
-.menuMobailUl li a{color: #5f6f81;}
+.menuMobailUl li a{padding:4px 0 3px 30px; color: #5f6f81;}
 .menuMULi{display: flex;}
 .menuMULiHasSub{display: flex;flex-flow: column;}
 .menuMULHSUp{display: flex;justify-content: space-between;}
