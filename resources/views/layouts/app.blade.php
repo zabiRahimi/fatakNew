@@ -23,7 +23,7 @@
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="\css\main.css" rel="stylesheet">
-    <!-- <link href="\css\navPc.css" rel="stylesheet"> -->
+    <link href="\css\addOrerAndFollowUpOrder.css" rel="stylesheet">
 </head>
 <body>
     <div>

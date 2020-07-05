@@ -3,9 +3,15 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route, useLocation} from "react-router-dom";
 import Header from './header/index.js';
 import Nav from './nav/index.js';
+import MenuMiddle from './menuMiddle/index.js';
+import proPublic from './proPublic/index.js';
+
 import Options from './options/index.js';
 import Content from './content/index.js';
 import Footer from './footer/index.js';
+import ProPublic from './proPublic/index.js';
+
+
 
 class App extends Component {
     componentDidMount() {
@@ -17,6 +23,10 @@ class App extends Component {
             <div className="container2">
                 <Header />
                 <Nav />
+                <MenuMiddle />
+                <ProPublic />
+
+
                 {/* <About /> */}
                 <Switch>
                     <Route exact path="/">

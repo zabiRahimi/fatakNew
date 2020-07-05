@@ -17153,7 +17153,7 @@ readers do not read off random characters that represent icons */
   padding: 0 8px;
   margin-left: 2px;
   border-radius: 2px;
-  background-color: #f5f5f5;
+  background-color: #edeff1;
   color: #5f6f81;
 }
 
@@ -17361,5 +17361,13 @@ readers do not read off random characters that represent icons */
 
 .menuMobailMenu ul {
   position: relative;
+}
+
+.menuMiddelContiner {
+  width: 100%;
+  margin: 10px 0 0;
+  padding: 8px 0;
+  display: flex;
+  background-color: #fff;
 }
 

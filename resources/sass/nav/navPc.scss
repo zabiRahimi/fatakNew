@@ -1,6 +1,6 @@
 .navPcContainer{width: 100%;height: inherit; display: flex;align-items: center;}
 .navPcContainer ul{width: 100%;height: inherit; padding: 0;margin: 0; display: flex;align-items: center;}
-.navPcContainer li{height: 20px; list-style: none;display: flex;flex-flow: column;position: relative;padding:0 8px;margin-left: 2px;border-radius: 2px; background-color:#f5f5f5 ;color:#5f6f81;}
+.navPcContainer li{height: 20px; list-style: none;display: flex;flex-flow: column;position: relative;padding:0 8px;margin-left: 2px;border-radius: 2px; background-color:$btnLi ;color:#5f6f81;}
 .navPcContainer li a{color:#5f6f81;}
 .navPcContainer li .divLi{display: flex;flex-flow: row;justify-content: space-between;}
 .divLiIcon i{padding-right: 12px;position: relative;}
