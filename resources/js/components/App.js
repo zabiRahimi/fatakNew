@@ -4,12 +4,12 @@ import { BrowserRouter as Router, Switch, Route, useLocation} from "react-router
 import Header from './header/index.js';
 import Nav from './nav/index.js';
 import MenuMiddle from './menuMiddle/index.js';
-import proPublic from './proPublic/index.js';
-
-import Options from './options/index.js';
 import Content from './content/index.js';
 import Footer from './footer/index.js';
-import ProPublic from './proPublic/index.js';
+
+
+import Options from './options/index.js';
+
 
 
 
@@ -24,7 +24,8 @@ class App extends Component {
                 <Header />
                 <Nav />
                 <MenuMiddle />
-                <ProPublic />
+                <Content />
+                
 
 
                 {/* <About /> */}
@@ -54,7 +55,7 @@ class App extends Component {
                         <Home />
                     </Route>
                 </Switch> */}
-                <Content />
+                
                     <Footer />
             </div>
         </Router>

@@ -11,6 +11,10 @@
 @import '~@fortawesome/fontawesome-free/scss/solid';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
 
+//slik
+@import "~slick-carousel/slick/slick.css"; 
+@import "~slick-carousel/slick/slick-theme.css";
+
 // component
 @import './header/index';
 @import './header/header';
@@ -22,6 +26,8 @@
 
 @import './menuMiddle/index';
 @import './menuMiddle/addOrerAndFollowUpOrder';
+
+@import './footer/index.scss';
 
 
 

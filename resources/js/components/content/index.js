@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import ShowProSlider from './showProSlider';
+
 
 class Content extends Component {
     componentDidMount() {
@@ -8,7 +10,8 @@ class Content extends Component {
     render() {
         return (
             <div className="container2">
-                <h1>content</h1>
+                <ShowProSlider head='محصولات' />
+                <ShowProSlider head='محصولات پرفروش' />
             </div>
         )
     }
