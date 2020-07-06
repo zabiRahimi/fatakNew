@@ -11,7 +11,7 @@ class Content extends Component {
         return (
             <div className="container2">
                 <ShowProSlider head='محصولات' />
-                <ShowProSlider head='محصولات پرفروش' />
+                {/* <ShowProSlider head='محصولات پرفروش' /> */}
             </div>
         )
     }
