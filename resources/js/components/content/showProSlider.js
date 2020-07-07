@@ -5,27 +5,18 @@ import $ from "jquery";
 import Slider from "react-slick";
 import axios from 'axios';
 
-
-
-
 class ShowProSlider extends Component {
     constructor(props) {
         super(props)
         this.state = {
             pros: [],
             picturePro:[]
-            // console.log(users)
         }
-
     }
-
-
     componentDidMount() {
         axios.get('/pros')
             .then(response => {
-               
                 this.setState({ pros: response.data.pros , picturePro: response.data.picturePro })
-                console.log(response.data.picturePro[0].pro_id)
             })
             .catch(error => {
                 console.log(error)
@@ -33,7 +24,6 @@ class ShowProSlider extends Component {
     }
     render() {
         const settings = {
-
             infinite: true,
             speed: 2000,
             slidesToShow: 4,
@@ -42,18 +32,21 @@ class ShowProSlider extends Component {
             autoplaySpeed: 10000,
         };
         const { pros ,picturePro } = this.state;
-        // pros.map(pro=>{<div>45</div>})
-        // console.log(pros)
-        const map1 = pros.map((pro, key) =>
-           
+        const proShowSlider = pros.map((pro, key) =>{
+           const pic= picturePro.filter(e=>e.pro_id==pro.id);
+           const srcPic=`./images/imagePro/${pic[0].pic_b1}`
+            return(
             <div className="" key={key}>
-                { picturePro.map(e=>console.log(e))}
                 <div className="divSlider">
-                    <div className="divSliderImg"> <img src='./images/imageWeb/aparat-farsgraphic.png' /></div>
+                    <div className="divSliderImg"> <img src={srcPic} /></div>
                     <div className="divSliderName">{pro.name}</div>
                     <div className="divSliderPrice">{pro.price}</div>
+                    <div>picId : {pic[0].id}</div>
+                    <div>proId : {pro.id}</div>
                 </div>
             </div>
+            )
+        }
         );
         // console.log(map1)
         return (
@@ -63,50 +56,8 @@ class ShowProSlider extends Component {
                 </div>
                 <div className="showProSliderBody">
                     <div>
-
                         <Slider {...settings} className='showProSliderSlik'>
-                            {map1}
-                            {/* <div className="">
-                                <div className="divSlider">
-                                    {this.state.pros.name[0]}
-                                    <img src='./images/imageWeb/aparat-farsgraphic.png' />
-                                </div>
-                            </div>
-                            <div className="">
-                                <div className="divSlider">
-                                    <img src='./images/imageWeb/tango-farsgraphic.png' />
-                                </div>
-                            </div>
-                            <div className="">
-                                <div className="divSlider">
-                                    <img src='./images/imageWeb/telegram-farsgraphic.png' />
-                                </div>
-                            </div>
-                            <div className="">
-                                <div className="divSlider">
-                                    <img src='./images/imageWeb/we chat-farsgraphic.png' />
-                                </div>
-                            </div>
-                            <div className="">
-                                <div className="divSlider">
-                                    <img src='./images/imageWeb/whatsapp.png' />
-                                </div>
-                            </div>
-                            <div className="">
-                                <div className="divSlider">
-                                    <img src='./images/imageWeb/wikipedia.png' />
-                                </div>
-                            </div>
-                            <div className="">
-                                <div className="divSlider">
-                                    <img src='./images/imageWeb/yahoomassanger-farsgraphic.png' />
-                                </div>
-                            </div>
-                            <div className="">
-                                <div className="divSlider">
-                                    <img src='./images/imageWeb/youtube-farsgraphic.png' />
-                                </div>
-                            </div> */}
+                            {proShowSlider}
                         </Slider>
                     </div>
                 </div>
