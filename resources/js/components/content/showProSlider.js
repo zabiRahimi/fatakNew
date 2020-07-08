@@ -37,13 +37,7 @@ class ShowProSlider extends Component {
            const srcPic=`./images/imagePro/${pic[0].pic_b1}`
             return(
             <div className="" key={key}>
-<<<<<<< HEAD
-                { picturePro.map(    
-                                     
-                                )
-                }
-=======
->>>>>>> 684947545bf5d987e44ab1f7b4e5205a39a98e14
+               
                 <div className="divSlider">
                     <div className="divSliderImg"> <img src={srcPic} /></div>
                     <div className="divSliderName">{pro.name}</div>
