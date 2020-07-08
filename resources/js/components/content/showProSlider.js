@@ -47,7 +47,10 @@ class ShowProSlider extends Component {
         const map1 = pros.map((pro, key) =>
            
             <div className="" key={key}>
-                { picturePro.map(e=>console.log(e))}
+                { picturePro.map(    
+                                     
+                                )
+                }
                 <div className="divSlider">
                     <div className="divSliderImg"> <img src='./images/imageWeb/aparat-farsgraphic.png' /></div>
                     <div className="divSliderName">{pro.name}</div>
