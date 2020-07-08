@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route, useLocation} from "react-router
 import Header from './header/index.js';
 import Nav from './nav/index.js';
 import MenuMiddle from './menuMiddle/index.js';
+import About from './aboutUs/index.js';
 import Content from './content/index.js';
 import Footer from './footer/index.js';
 
@@ -24,26 +25,36 @@ class App extends Component {
                 <Header />
                 <Nav />
                 <MenuMiddle />
-                <Content />
-                
-
-
-                {/* <About /> */}
                 <Switch>
                     <Route exact path="/">
-                        <Home />
+                        {/* <Home /> */}
                     </Route>
-                    <Route path="/about">
+                    <Route path="/aboutUs">
                         <About />
                     </Route>
-                    <Route path="/options">
+                    <Route path="/contactUs">
+                        <About />
+                    </Route>
+                    <Route path="/complaint">
+                        <About />
+                    </Route>
+                    <Route path="/aboutUs">
+                        <About />
+                    </Route>
+                    {/* <Route path="/options">
                         <Users />
                     </Route>
                     
                     <Route path="*">
                         <NoMatch />
-                    </Route>
+                    </Route> */}
                 </Switch>
+                <Content />
+                
+
+
+                {/* <About /> */}
+               
                 {/* <Switch>
                     <Route path="/about">
                         <About />
@@ -63,9 +74,9 @@ class App extends Component {
     }
 
 }
-function About() {
-    return <h2>About</h2>;
-}
+// function About() {
+//     return <h2>About</h2>;
+// }
 
 function Users() {
     return <h2>Users</h2>;

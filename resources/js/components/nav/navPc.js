@@ -29,9 +29,9 @@ class NavPc extends Component {
         return (
             <div className="navPcContainer">
                 <ul className="">
-                    <li className=""><Link to="">خانه</Link></li>
-                    <li className=""><Link to="">درباره ما</Link></li>
-                    <li className=""><Link to="">تماس با ما</Link></li>
+                    <li className=""><Link to="/">خانه</Link></li>
+                    <li className=""><Link to="/aboutUs">درباره ما</Link></li>
+                    <li className=""><Link to="/contactUs">تماس با ما</Link></li>
                     <li className=""><Link to="">ثبت شکایت</Link></li>
 
                     <li className=""id="orderLiPc"onClick={this.showUlSubPc}>
