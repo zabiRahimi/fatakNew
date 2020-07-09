@@ -16,7 +16,7 @@ class ManageSocialNetwork extends Component {
     render() {
         return (
             <div className="navContiner" id='navContiner'>
-                
+                ManageSocialNetwork
             </div>
         )
     }

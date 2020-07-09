@@ -32,7 +32,7 @@ class NavPc extends Component {
                     <li className=""><Link to="/">خانه</Link></li>
                     <li className=""><Link to="/aboutUs">درباره ما</Link></li>
                     <li className=""><Link to="/contactUs">تماس با ما</Link></li>
-                    <li className=""><Link to="">ثبت شکایت</Link></li>
+                    <li className=""><Link to="/complaint">ثبت شکایت</Link></li>
 
                     <li className=""id="orderLiPc"onClick={this.showUlSubPc}>
                         <div className="divLi">
@@ -43,8 +43,8 @@ class NavPc extends Component {
                             </div>
                         </div>
                         <ul className="menuPcUlSub">
-                            <li className=""><Link to="">سفارش</Link></li>
-                            <li className=""><Link to="">پیگیری سفارش</Link></li>
+                            <li className=""><Link to="/order">سفارش</Link></li>
+                            <li className=""><Link to="/order">پیگیری سفارش</Link></li>
                             <li className=""><Link to="">پیگیری خرید</Link></li>
                             <li className=""><Link to="">راهنما</Link></li>
                         </ul>

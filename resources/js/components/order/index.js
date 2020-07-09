@@ -5,7 +5,7 @@ import $ from "jquery";
 
 
 
-class Contact extends Component {
+class Order extends Component {
     constructor(props) {
         super(props)
         // this.state = 
@@ -15,10 +15,10 @@ class Contact extends Component {
     }
     render() {
         return (
-            <div className="navContiner" id='navContiner'>
-                Contact
+            <div className="orderContiner" id='orderContiner'>
+                Order
             </div>
         )
     }
 }
-export default Contact;
+export default Order;
