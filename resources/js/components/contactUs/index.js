@@ -16,7 +16,7 @@ class Contact extends Component {
     render() {
         return (
             <div className="navContiner" id='navContiner'>
-                
+                Contact
             </div>
         )
     }

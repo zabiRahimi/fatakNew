@@ -16,7 +16,7 @@ class Complaint extends Component {
     render() {
         return (
             <div className="navContiner" id='navContiner'>
-                
+                Complaint
             </div>
         )
     }

@@ -10,6 +10,9 @@ import Footer from './footer/index.js';
 
 
 import Options from './options/index.js';
+import Contact from './contactUs/index.js';
+import Complaint from './complaint/index.js';
+import Order from './order/index.js';
 
 
 
@@ -33,13 +36,13 @@ class App extends Component {
                         <About />
                     </Route>
                     <Route path="/contactUs">
-                        <About />
+                        <Contact />
                     </Route>
                     <Route path="/complaint">
-                        <About />
+                        <Complaint />
                     </Route>
-                    <Route path="/aboutUs">
-                        <About />
+                    <Route path="/order">
+                        <Order />
                     </Route>
                     {/* <Route path="/options">
                         <Users />
