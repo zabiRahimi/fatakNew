@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Switch, Route, useLocation} from "react-router-dom";
+
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Header from './header/index.js';
 import Nav from './nav/index.js';
 import MenuMiddle from './menuMiddle/index.js';
@@ -13,6 +14,7 @@ import Options from './options/index.js';
 import Contact from './contactUs/index.js';
 import Complaint from './complaint/index.js';
 import Order from './order/index.js';
+import ManageSocialNetwork from './manageSocialNetwork/index.js';
 
 
 
@@ -20,6 +22,7 @@ import Order from './order/index.js';
 class App extends Component {
     componentDidMount() {
         // Pusher.logToConsole = true;
+        console.log(React.version)
     }
     render() {
     return (
@@ -41,8 +44,11 @@ class App extends Component {
                     <Route path="/complaint">
                         <Complaint />
                     </Route>
-                    <Route path="/order">
-                        <Order />
+                    <Route path="/order" >
+                        <Order  />
+                    </Route>
+                    <Route path="/socialNetwork" >
+                        <ManageSocialNetwork />
                     </Route>
                     {/* <Route path="/options">
                         <Users />

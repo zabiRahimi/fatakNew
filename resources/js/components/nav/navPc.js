@@ -43,10 +43,10 @@ class NavPc extends Component {
                             </div>
                         </div>
                         <ul className="menuPcUlSub">
-                            <li className=""><Link to="/order">سفارش</Link></li>
-                            <li className=""><Link to="/order">پیگیری سفارش</Link></li>
-                            <li className=""><Link to="">پیگیری خرید</Link></li>
-                            <li className=""><Link to="">راهنما</Link></li>
+                            <li className=""><Link to={{pathname:"/order" , showComponentOrder:'addOrder'}}>سفارش</Link></li>
+                            <li className=""><Link to={{pathname:"/order" , showComponentOrder:'pursueOrder'}}>پیگیری سفارش</Link></li>
+                            <li className=""><Link to={{pathname:"/order" , showComponentOrder:'pursueBuy'}}>پیگیری خرید</Link></li>
+                            <li className=""><Link to={{pathname:"/order" , showComponentOrder:'guideOrder'}}>راهنما</Link></li>
                         </ul>
                     </li>
                     <li className="" id="channelLiPc"onClick={this.showUlSubPc}>
@@ -58,9 +58,9 @@ class NavPc extends Component {
                             </div>
                         </div>
                         <ul className="menuPcUlSub">
-                            <li className=""><Link to="">ورود</Link></li>
-                            <li className=""><Link to="">ثبت نام</Link></li>
-                            <li className=""><Link to="">راهنما</Link></li>
+                            <li className=""><Link to={{pathname:"/socialNetwork" , showComponentSocialNetwork:'loginSocialNetwork'}}>ورود</Link></li>
+                            <li className=""><Link to={{pathname:"/socialNetwork" , showComponentSocialNetwork:'signUpSocialNetwork'}}>ثبت نام</Link></li>
+                            <li className=""><Link to={{pathname:"/socialNetwork" , showComponentSocialNetwork:'guideSocialNetwork'}}>راهنما</Link></li>
                         </ul>
                     </li>
                     <li className=""id="shopLiPc"onClick={this.showUlSubPc}>
