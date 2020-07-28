@@ -20,6 +20,12 @@
  .kama{ font-family:Tahoma, Geneva, sans-serif ; color:#000}
  .br{margin-bottom: 15px;}
  html , body{width: 100%; font-family:"b koodak", Arial, Helvetica, sans-serif;direction:rtl;text-align: right;background-color: #f3f3f3;}
+ .city{
+   display: none;
+ }
+ .defaultCity{
+   display: block;
+ }
 
 
 

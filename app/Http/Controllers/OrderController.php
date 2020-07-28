@@ -37,7 +37,18 @@ class OrderController extends Controller
      */
     public function store(StoreOrder $request)
     {
-        //
+        $data=$request->all();
+        unset($data['captcha']);
+        $data['date_ad']=time();
+        $data['date_up']=time();
+        $data['stage']=1;
+        $data['show']=1;
+        
+        $id=Order::create($data);
+        if(empty($id->id)){
+            return response()->json(['errror'=> 'خطایی رخ داده است ، لطفا دوباره تلاش کنید .'],422);        
+        }
+        return response()->json(['id'=> $id->id]);
     }
 
     /**
