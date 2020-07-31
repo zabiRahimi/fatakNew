@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-
-import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
+// BrowserRouter as Router,
+import {  Switch, Route} from "react-router-dom";
 import Header from './header/index.js';
 import Nav from './nav/index.js';
 import MenuMiddle from './menuMiddle/index.js';
@@ -15,6 +15,7 @@ import Contact from './contactUs/index.js';
 import Complaint from './complaint/index.js';
 import Order from './order/index.js';
 import ManageSocialNetwork from './manageSocialNetwork/index.js';
+import EndAddOrder from './order/endAddOrder.js';
 
 
 
@@ -26,14 +27,14 @@ class App extends Component {
     }
     render() {
     return (
-        <Router>
+        
             <div className="container2">
                 <Header />
                 <Nav />
                 <MenuMiddle />
                 <Switch>
                     <Route exact path="/">
-                        {/* <Home /> */}
+                        <Home />
                     </Route>
                     <Route path="/aboutUs">
                         <About />
@@ -46,6 +47,9 @@ class App extends Component {
                     </Route>
                     <Route path="/order" >
                         <Order  />
+                    </Route>
+                    <Route path="/endAddOrder" >
+                        <EndAddOrder />
                     </Route>
                     <Route path="/socialNetwork" >
                         <ManageSocialNetwork />
@@ -78,7 +82,7 @@ class App extends Component {
                 
                     <Footer />
             </div>
-        </Router>
+        
     )
     }
 
@@ -137,14 +141,14 @@ function NoMatch() {
 //       </Router>
 //     );
 //   }
-export default App;
+// export default App;
 function Home() {
     return <h2>Home</h2>;
 }
 
 
 
-
-if (document.getElementById('app')) {
-    ReactDOM.render(<App />, document.getElementById('app'));
-}
+export default App;
+// if (document.getElementById('app')) {
+//     ReactDOM.render(<App />, document.getElementById('app'));
+// }

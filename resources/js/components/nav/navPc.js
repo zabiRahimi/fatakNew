@@ -33,7 +33,7 @@ class NavPc extends Component {
                     <li className=""><Link to="/aboutUs">درباره ما</Link></li>
                     <li className=""><Link to="/contactUs">تماس با ما</Link></li>
                     <li className=""><Link to="/complaint">ثبت شکایت</Link></li>
-
+                    <li className=""><Link to="/endAddOrder">ثبت شکایتsss</Link></li>
                     <li className=""id="orderLiPc"onClick={this.showUlSubPc}>
                         <div className="divLi">
                             <div className="divLiTitr">سفارش</div>

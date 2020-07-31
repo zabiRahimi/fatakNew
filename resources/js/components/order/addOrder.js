@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import {withRouter , Link } from "react-router-dom";
 import $ from "jquery";
 import CaptchaImg from '../captchaImg';
 import State from '../city/state';
@@ -22,11 +23,12 @@ class AddOrder extends Component {
             state: null,
             city: null,
         }
-        this.refreshCaptcha = React.createRef()
+        this.refreshCaptcha = React.createRef();
+        this.handleRouter=this.handleRouter.bind(this)
     }
     handleDelError = e => {
         const { id } = e.target;
-        
+
         $('#' + id).css("border-color", "#e3e9ef");
         $('#' + id + 'Alert').html('');
     }
@@ -36,8 +38,8 @@ class AddOrder extends Component {
         this.nameElement = name;
         this.idElement = id;
         this.valueElement = value;
-        console.log(id)
-        
+
+
         const check = /^[0-9]{10}$/;
         if (name == 'mobeil' && check.test(value)) {
             value = 0 + value;
@@ -54,21 +56,39 @@ class AddOrder extends Component {
                 }
                 else {
                     $('#' + this.idElement).css("border-color", "green");
+                    $('.' + 's' + this.idElement).css("border-color", "green");
                     $('#' + this.idElement + 'Alert').html('');
                 }
             })
+    }
+    handleDelCity = () => {
+
+        this.setState({ city: null })
+        $('.scity').css("border-color", "#e3e9ef");
     }
     handleSubmit = (e) => {
         e.preventDefault();
         let data = { ...this.state, captcha: $('#captcha').val() }
         axios.post('/order', data, { headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } })
             .then(response => {
-                $('#formAddOrder').trigger('reset');
-                alert('is very ok')
-                console.log('okkk')
-                this.refreshCaptcha.current.refreshCaptcha();
+                // this.props.history.push('/endAddOrder')
+                // $('#formAddOrder').trigger('reset');
+                // const stateE = this.state;
+                // for (let i in stateE) {
+                //     this.setState({ [i]: null })
+                //     $('#' + i).css("border-color", "#e3e9ef")
+                //     $('.' + 's' + i).css("border-color", "#e3e9ef")
+                // }
+                // // this.handleRouter()
+                // this.refreshCaptcha.current.refreshCaptcha();
+                this.props.history.push('/endAddOrder')
+                // // return <Link to='/endAddOrder' />
+                // this.props.history.push('http://localhost:8000/endAddOrder')
+                // console.log('hhhhhh')
+                
             })
             .catch(error => {
+                // console.log(error)
                 $('#captcha').val('')
                 $('#captcha').css("border-color", "red")
                 this.refreshCaptcha.current.refreshCaptcha();
@@ -80,12 +100,21 @@ class AddOrder extends Component {
                 console.log((offset.top + 50))
                 for (let xr in errorData) {
                     $('#' + xr).css("border-color", "red")
+                    $('.' + 's' + xr).css("border-color", "red")
+
                     $('#' + xr + 'Alert').html(errorData[xr])
                 }
 
 
 
             })
+    }
+    handleRouter =()=>{
+        return <Link to='/endAddOrder' />
+    } 
+    handleSelect = (e)=>{
+        this.handleChange(e)
+        this.handleDelError(e)
     }
     render() {
         return (
@@ -100,7 +129,7 @@ class AddOrder extends Component {
                     </div>
                     <div>
                         <label >دسته محصول</label>
-                        <select name='squad' id='squad' onChange={this.handleChange} onClick={this.handleDelError}>
+                        <select name='squad' id='squad' onChange={(e)=>{this.handleSelect(e)}} >
                             <option value=''>دسته محصول را انتخاب کنید</option>
                             <option value='خوراکی'>خوراکی</option>
                             <option value='پوشاک'>پوشاک</option>
@@ -112,7 +141,7 @@ class AddOrder extends Component {
                     </div>
                     <div>
                         <label >واحد محصول</label>
-                        <select name='moduleOrder' id='moduleOrder' onChange={this.handleChange} onClick={this.handleDelError}>
+                        <select name='moduleOrder' id='moduleOrder' onChange={(e)=>{this.handleSelect(e)}}>
                             <option value=''>واحد محصول را انتخاب کنید</option>
                             <option value='عدد'>عدد</option>
                             <option value='گرم'>گرم</option>
@@ -140,12 +169,12 @@ class AddOrder extends Component {
                     </div>
                     <div>
                         <label >استان</label>
-                        <State blur={this.handleChange} click={this.handleDelError}/>
+                        <State blur={this.handleChange} click={this.handleDelError} delCity={this.handleDelCity} />
                         <div id='stateAlert'></div>
                     </div>
                     <div>
                         <label >شهر</label>
-                        <City />
+                        <City blur={this.handleChange} click={this.handleDelError} />
                         <div id='cityAlert'></div>
                     </div>
                     <div>
@@ -161,4 +190,4 @@ class AddOrder extends Component {
     }
 
 }
-export default AddOrder;
+export default withRouter (AddOrder);
