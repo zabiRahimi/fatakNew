@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import {withRouter , Link } from "react-router-dom";
+// import ReactDOM from 'react-dom';
+import {withRouter} from "react-router-dom";
 import $ from "jquery";
 import CaptchaImg from '../captchaImg';
 import State from '../city/state';
@@ -24,22 +24,17 @@ class AddOrder extends Component {
             city: null,
         }
         this.refreshCaptcha = React.createRef();
-        this.handleRouter=this.handleRouter.bind(this)
     }
     handleDelError = e => {
         const { id } = e.target;
-
         $('#' + id).css("border-color", "#e3e9ef");
         $('#' + id + 'Alert').html('');
     }
     handleChange = e => {
-
         let { name, value, id } = e.target;
         this.nameElement = name;
         this.idElement = id;
         this.valueElement = value;
-
-
         const check = /^[0-9]{10}$/;
         if (name == 'mobeil' && check.test(value)) {
             value = 0 + value;
@@ -62,7 +57,6 @@ class AddOrder extends Component {
             })
     }
     handleDelCity = () => {
-
         this.setState({ city: null })
         $('.scity').css("border-color", "#e3e9ef");
     }
@@ -81,37 +75,44 @@ class AddOrder extends Component {
                 // }
                 // // this.handleRouter()
                 // this.refreshCaptcha.current.refreshCaptcha();
-                this.props.history.push('/endAddOrder')
+                
+                this.props.history.push('/endAddOrder',response.data.order)
                 // // return <Link to='/endAddOrder' />
                 // this.props.history.push('http://localhost:8000/endAddOrder')
-                // console.log('hhhhhh')
+                
                 
             })
             .catch(error => {
-                // console.log(error)
                 $('#captcha').val('')
                 $('#captcha').css("border-color", "red")
                 this.refreshCaptcha.current.refreshCaptcha();
+                if(error.response.status==422){
                 const errorData = error.response.data.errors;
-                console.log(Object.keys(errorData)[0])
                 const firstError = Object.keys(errorData)[0];
                 const offset = $("#" + firstError).offset();
                 $(document).scrollTop(offset.top - 80)
-                console.log((offset.top + 50))
                 for (let xr in errorData) {
                     $('#' + xr).css("border-color", "red")
                     $('.' + 's' + xr).css("border-color", "red")
-
                     $('#' + xr + 'Alert').html(errorData[xr])
                 }
-
+            }
+            else{
+                const offset = $("#error").offset();
+                $(document).scrollTop(offset.top - 80)
+                $('#formAddOrder').trigger('reset');
+                const stateE = this.state;
+                for (let i in stateE) {
+                    this.setState({ [i]: null })
+                    $('#' + i).css("border-color", "#e3e9ef")
+                    $('.' + 's' + i).css("border-color", "#e3e9ef")
+                }
+                $('#errorAlert').html('خطایی رخ داده است ، لطفا دوباره تلاش کنید .') 
+            }
 
 
             })
     }
-    handleRouter =()=>{
-        return <Link to='/endAddOrder' />
-    } 
     handleSelect = (e)=>{
         this.handleChange(e)
         this.handleDelError(e)
@@ -121,6 +122,9 @@ class AddOrder extends Component {
             <div className="orderContiner" id='orderContiner'>
 
                 <form id='formAddOrder' onSubmit={this.handleSubmit}>
+                    <div id='error'>
+                        <div id='errorAlert'></div>
+                    </div>
                     <div>
                         <label >نام محصول</label>
                         <input type='text' name='nameOrder' id='nameOrder' placeholder='name'

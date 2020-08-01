@@ -318,7 +318,7 @@ const City =(props)=> {
                     <option className="cityOff ostan16" value="هیرمند">هیرمند</option>
                 </select>
             </div>
-            <div className='city farscity'>
+            <div className='city farsCity'>
                 <select name='city' id='city' className='scity' onBlur={props.blur} onChange={props.click}  >
                     <option value='' defaultValue='' className='defaultSelect'>انتخاب شهر</option>
                     <option className="cityOff ostan17" value="آباده">آباده</option>
