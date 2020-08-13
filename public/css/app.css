@@ -17343,6 +17343,176 @@ readers do not read off random characters that represent icons */
   width: auto;
 }
 
+.labelForm {
+  margin: 0 0 1px;
+  padding: 0 5px 0 0;
+}
+
+.star {
+  font-size: 6px;
+  display: inline-flex;
+  position: relative;
+  top: -5px;
+  right: 2px;
+  color: #a52640;
+}
+
+.validFeedback {
+  height: 20px;
+  margin: 0 0 2px;
+  padding: 0 6px;
+  font-size: 12px;
+  color: #a52640;
+}
+
+.form {
+  width: 70%;
+  max-width: 550px;
+  margin: 20px 0;
+  padding: 10px 30px 20px;
+  background-color: #fdfcfc;
+  box-shadow: 0 5px 10px -3px rgba(120, 120, 120, 0.3);
+  border-radius: 3px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.formGroupDiv {
+  margin: 2px 0 0;
+}
+
+.titleForm {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #d7d7f1;
+  color: #2f2f63;
+  border-radius: 2px;
+}
+
+.pointForm {
+  width: 100%;
+  display: flex;
+  margin: 0.5px 0;
+  padding-right: 6px;
+  font-size: 12px;
+  color: #2f2f63;
+}
+
+@media (max-width: 768px) {
+  .titleForm h3 {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .form {
+    width: 85%;
+    padding: 20px 10px;
+  }
+
+  .formGroupDiv {
+    margin: 0;
+  }
+
+  .selectForm {
+    height: 28px;
+    padding: 0 6px 0 0;
+  }
+}
+
+@media (max-width: 332px) {
+  .form {
+    width: 94%;
+    padding: 10px 5px;
+  }
+}
+
+.errorAllContiner {
+  width: 100%;
+  height: auto;
+  margin: 1px 0;
+  padding: 0;
+  display: flex;
+  border-radius: 3px;
+}
+
+.errorAll {
+  width: 100%;
+  margin: 0;
+  padding: 0 6px;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 454px) {
+  .errorAll {
+    font-size: 12px;
+    padding: 0 3px;
+  }
+}
+
+@media (max-width: 576px) {
+  .inputForm {
+    height: 28px;
+  }
+}
+
+.captcha {
+  display: flex;
+  flex: initial;
+}
+
+.captcha input {
+  display: flex;
+  flex: auto;
+}
+
+.captchaPic {
+  display: flex;
+}
+
+.captchaPic img {
+  width: 120px;
+  margin-right: 2px;
+}
+
+.btnCaptcha {
+  width: 30px;
+  margin-right: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-color: #ced4da;
+  color: #4776bd;
+}
+
+@media (max-width: 576px) {
+  .btnCaptcha {
+    height: 28px;
+  }
+
+  .captchaPic img {
+    height: 28px;
+  }
+}
+
+@media (max-width: 454px) {
+  .captcha {
+    flex-flow: column;
+  }
+
+  .captchaPic {
+    width: 100%;
+    margin: 3px 0 0 0;
+  }
+
+  .captchaPic img {
+    width: 100%;
+  }
+}
+
 .headerContiner {
   background-color: white;
 }
@@ -17677,6 +17847,12 @@ readers do not read off random characters that represent icons */
 
 .menuMobailMenu ul {
   position: relative;
+}
+
+.orderContiner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .menuMiddelContiner {

@@ -46,9 +46,7 @@ class OrderController extends Controller
         
         $order=Order::create($data);
         if(empty($order->id)){
-            // return response()->json(['errors' => ['no_mobail' => ['']]], 422);   
-            return response()->json(['errors' => ['error' => ['خطایی رخ داده است لطفا دوباره تلاش کنید .']]], 422);       
-
+            return response()->json(['errors' => ['errorAll' => ['<b>خطایی رخ داده اشت</b>']]], 500);   
         }
         return response()->json(['order'=> $order]);
     }

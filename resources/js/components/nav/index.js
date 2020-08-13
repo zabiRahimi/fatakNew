@@ -20,7 +20,7 @@ class Nav extends Component {
             });
             window.addEventListener('scroll',()=>{
                     if ($(document).scrollTop() > fixed.top) {
-                      $('#navContiner').css({"width":"100%","top":"-5px","position": "fixed" , "z-index": "333333"});
+                      $('#navContiner').css({"width":"100%","top":"-5px","position": "fixed" , "z-index": "333"});
                     }
                   else{
                       $('#navContiner').css({"position": " relative"});

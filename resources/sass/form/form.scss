@@ -1,0 +1,61 @@
+// /* 1200 , 992 , 768 , 576 , 454 , 332 */
+.form{
+    width: 70%;
+    max-width: 550px;
+    margin: 20px 0;
+    padding: 10px 30px 20px;
+    background-color: #fdfcfc;
+    box-shadow: 0 5px 10px -3px hsla(0,0%,47%,.3);
+    border-radius: 3px;
+    display: flex;
+   flex-flow: column;
+    justify-content: center;
+}
+.formGroupDiv{
+    margin: 2px 0 0;
+}
+.titleForm{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #d7d7f1;
+    color:#2f2f63;
+    border-radius: 2px;
+}
+
+.pointForm{
+    width: 100%;
+    display: flex;
+    margin: 0.5px 0;
+    padding-right: 6px;
+    font-size: 12px;
+    color:#2f2f63 ;
+}
+@media (max-width:768px){
+    .titleForm h3{
+        font-size: 16px;
+    }
+    
+}
+@media (max-width :576px){
+    .form{
+        width: 85%;
+        padding: 20px 10px;
+    }
+    .formGroupDiv{
+        margin: 0;
+    }
+    
+    .selectForm{
+        height: 28px;
+        padding: 0 6px 0 0;
+    }
+   
+}
+@media (max-width :332px){
+    .form{
+        width: 94%;
+        padding: 10px 5px;
+        
+    }
+}

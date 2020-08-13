@@ -1,19 +1,21 @@
-import React, { Component } from 'react';
-// import ReactDOM from 'react-dom';
-import {withRouter} from "react-router-dom";
+import React,{ useState , useRef } from 'react';
+import { withRouter } from "react-router-dom";
 import $ from "jquery";
-import CaptchaImg from '../captchaImg';
-import State from '../city/state';
-import City from '../city/city';
-
-
-
-// headers:{'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
-
-class AddOrder extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
+import Swal from 'sweetalert2';
+import State from '../form/state';
+import City from '../form/city';
+import Title from '../form/title';
+import Point from '../form/point';
+import ErrorAll from '../form/errorAll';
+import Input from '../form/input';
+import Select from '../form/select';
+import Textarea from '../form/textarea';
+import Captcha from '../form/captch';
+import Submit from '../form/submit';
+import useCity from '../form/uses/useCity';
+const AddOrder =(props)=> {
+    const changeCaptcha=useRef();
+    const [element , setElement]=useState({
             nameOrder: null,
             squad: null,
             moduleOrder: null,
@@ -22,176 +24,114 @@ class AddOrder extends Component {
             mobeil: null,
             state: null,
             city: null,
-        }
-        this.refreshCaptcha = React.createRef();
-    }
-    handleDelError = e => {
-        const { id } = e.target;
-        $('#' + id).css("border-color", "#e3e9ef");
-        $('#' + id + 'Alert').html('');
-    }
-    handleChange = e => {
-        let { name, value, id } = e.target;
-        this.nameElement = name;
-        this.idElement = id;
-        this.valueElement = value;
+    })
+    const handleValue = e => {
+        let { id , value } = e.target;
         const check = /^[0-9]{10}$/;
-        if (name == 'mobeil' && check.test(value)) {
+        if (id == 'mobeil' && check.test(value)) {
             value = 0 + value;
         }
-        this.setState({ [name]: value })
-        // because in this fun to send only element , also geting errors for of this dont use fun then
-        axios.post('/order', { [name]: value }, { headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } })
+        setElement(prev =>({...prev , [id]: value }))
+        // // because in this fun to send only element , also geting errors for of this dont use fun then
+        axios.post('/order', { [id]: value }, { headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } })
             .catch((error) => {
-                const checkError = error.response.data.errors[this.nameElement]
+                const checkError = error.response.data.errors[id]
                 if (checkError) {
-                    this.setState({ [this.nameElement]: null })
-                    $('#' + this.idElement).css("border-color", "red")
-                    $('#' + this.idElement + 'Alert').html(checkError)
+                    setElement(prevState =>({...prevState , [id]: null }))
+                    $('#' + id).css("border-color", "red")
+                    $('.' + id + 'Feedback').html(checkError)
                 }
                 else {
-                    $('#' + this.idElement).css("border-color", "green");
-                    $('.' + 's' + this.idElement).css("border-color", "green");
-                    $('#' + this.idElement + 'Alert').html('');
+                    $('#' + id).css("border-color", "green");
                 }
             })
     }
-    handleDelCity = () => {
-        this.setState({ city: null })
-        $('.scity').css("border-color", "#e3e9ef");
-    }
-    handleSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        let data = { ...this.state, captcha: $('#captcha').val() }
+        let data = { ...element, captcha: $('#captcha').val() }
         axios.post('/order', data, { headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } })
             .then(response => {
-                // this.props.history.push('/endAddOrder')
-                // $('#formAddOrder').trigger('reset');
-                // const stateE = this.state;
-                // for (let i in stateE) {
-                //     this.setState({ [i]: null })
-                //     $('#' + i).css("border-color", "#e3e9ef")
-                //     $('.' + 's' + i).css("border-color", "#e3e9ef")
-                // }
-                // // this.handleRouter()
-                // this.refreshCaptcha.current.refreshCaptcha();
-                
-                this.props.history.push('/endAddOrder',response.data.order)
-                // // return <Link to='/endAddOrder' />
-                // this.props.history.push('http://localhost:8000/endAddOrder')
-                
-                
+                props.history.replace('/endAddOrder', response.data.order)
+                Swal.fire({
+                    position: 'top',
+                    icon: 'success',
+                    title: 'سفارش شما با موفقیت ثبت شد',
+                    showConfirmButton: false,
+                    timer: 3000
+                })
             })
             .catch(error => {
                 $('#captcha').val('')
-                $('#captcha').css("border-color", "red")
-                this.refreshCaptcha.current.refreshCaptcha();
-                if(error.response.status==422){
-                const errorData = error.response.data.errors;
-                const firstError = Object.keys(errorData)[0];
-                const offset = $("#" + firstError).offset();
-                $(document).scrollTop(offset.top - 80)
-                for (let xr in errorData) {
-                    $('#' + xr).css("border-color", "red")
-                    $('.' + 's' + xr).css("border-color", "red")
-                    $('#' + xr + 'Alert').html(errorData[xr])
+                $('.captchaFeedback').html('')
+                changeCaptcha.current.refreshCaptcha()
+                if (error.response.status == 422) {
+                    const errorData = error.response.data.errors;
+                    const firstError = Object.keys(errorData)[0];
+                    const offset =  $("#" + firstError).offset();
+                    $(document).scrollTop(offset.top - 80)
+                    for (let i in errorData) {
+                        $('#' + i).css("border-color", "red")
+                        $('.' + i + 'Feedback').html(errorData[i])
+                    }
                 }
-            }
-            else{
-                const offset = $("#error").offset();
-                $(document).scrollTop(offset.top - 80)
-                $('#formAddOrder').trigger('reset');
-                const stateE = this.state;
-                for (let i in stateE) {
-                    this.setState({ [i]: null })
-                    $('#' + i).css("border-color", "#e3e9ef")
-                    $('.' + 's' + i).css("border-color", "#e3e9ef")
+                else {
+                    const offset = $(".errorAll").offset();
+                    $(document).scrollTop(offset.top - 80)
+                    $('#formAddOrder').trigger('reset');
+                    for (let i in element) {
+                        setElement(perv=>({...perv , [i]: null }))
+                        $('#' + i).css("border-color", "#e3e9ef")
+                    }
+                    $('.errorAll').html(
+                        `<div class='alert alert-danger errorAll' >خطایی رخ داده است ، لطفا دوباره تلاش کنید .</div> `
+                    )
                 }
-                $('#errorAlert').html('خطایی رخ داده است ، لطفا دوباره تلاش کنید .') 
-            }
-
-
             })
     }
-    handleSelect = (e)=>{
-        this.handleChange(e)
-        this.handleDelError(e)
-    }
-    render() {
+    const [stateName , getCity]=useCity(setElement);
         return (
             <div className="orderContiner" id='orderContiner'>
+                {/* note : css code form in form.scss   */}
+                <form className='form' id='formAddOrder' onSubmit={handleSubmit}>
+                    <Title title='ثبت سفارش' />
+                    <Point point='پر کردن فیلدهای ستاره دار الزامی است .'/>
+                    <ErrorAll />
+                    <Input label='نام محصول' id='nameOrder' star='ok' blur={handleValue} />
+                    <Select label='دسته محصول' id='squad' change={handleValue}
+                      option={[
+                          <option value="خودرو" key="1">خودرو</option>,
+                          <option value="پوشاک" key="2">پوشاک</option>,
+                          <option value="کتاب" key="3">کتاب</option>,
+                          <option value="شیرینی پزی و آشپزی" key="4">شیرینی پزی و آشپزی</option>,
+                          <option value="خوار و بار" key="5">خوار و بار</option>,
+                          <option value="کامپیوتر" key="6">کامپیوتر</option>,
+                          <option value="سایر" key="7">سایر</option>,
+                      ]} 
+                    />
+                    <Select label='واحد محصول' id='moduleOrder' star='ok' change={handleValue}
+                         option={[
+                          <option value="عدد" key="1">عدد</option>,
+                          <option value="کیلو گرم" key="2">کیلو گرم</option>,
+                          <option value="گرم" key="3">گرم</option>,
+                          <option value="بسته" key="4">بسته</option>,
+                          <option value="گونی" key="5">گونی</option>,
+                          <option value="کارتن" key="6">کارتن</option>,
+                          <option value="جین" key="7">جین</option>,
+                          <option value="سایر" key="8">سایر</option>,
 
-                <form id='formAddOrder' onSubmit={this.handleSubmit}>
-                    <div id='error'>
-                        <div id='errorAlert'></div>
-                    </div>
-                    <div>
-                        <label >نام محصول</label>
-                        <input type='text' name='nameOrder' id='nameOrder' placeholder='name'
-                            onBlur={this.handleChange} onClick={this.handleDelError} />
-                        <div id='nameOrderAlert'></div>
-                    </div>
-                    <div>
-                        <label >دسته محصول</label>
-                        <select name='squad' id='squad' onChange={(e)=>{this.handleSelect(e)}} >
-                            <option value=''>دسته محصول را انتخاب کنید</option>
-                            <option value='خوراکی'>خوراکی</option>
-                            <option value='پوشاک'>پوشاک</option>
-                            <option value='خودرو'>خودرو</option>
-                            <option value='وسایل منزل'>وسایل منزل</option>
-                            <option value='کتاب'>کتاب</option>
-                            <option value='کامپیوتر'>کامپیوتر</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label >واحد محصول</label>
-                        <select name='moduleOrder' id='moduleOrder' onChange={(e)=>{this.handleSelect(e)}}>
-                            <option value=''>واحد محصول را انتخاب کنید</option>
-                            <option value='عدد'>عدد</option>
-                            <option value='گرم'>گرم</option>
-                            <option value='کیلو گرم'>کیلو گرم</option>
-                            <option value='گونی'>گونی</option>
-                            <option value='بسته'>بسته</option>
-                            <option value='کارتن'>کارتن</option>
-                        </select>
-                        <div id='moduleOrderAlert'></div>
-                    </div>
-                    <div>
-                        <label >تعداد محصول</label>
-                        <input type='text' name='numOrder' id='numOrder' placeholder='numOrder' onBlur={this.handleChange} onClick={this.handleDelError} />{this.state.moduleOrder}
-                        <div id='numOrderAlert'></div>
-                    </div>
-                    <div>
-                        <label >شرحی از محصول</label>
-                        <textarea name='dis' id='dis' onBlur={this.handleChange} onClick={this.handleDelError}></textarea>
-
-                    </div>
-                    <div>
-                        <label >موبایل</label>
-                        <input type='text' name='mobeil' id='mobeil' onBlur={this.handleChange} onClick={this.handleDelError} />
-                        <div id='mobeilAlert'></div>
-                    </div>
-                    <div>
-                        <label >استان</label>
-                        <State blur={this.handleChange} click={this.handleDelError} delCity={this.handleDelCity} />
-                        <div id='stateAlert'></div>
-                    </div>
-                    <div>
-                        <label >شهر</label>
-                        <City blur={this.handleChange} click={this.handleDelError} />
-                        <div id='cityAlert'></div>
-                    </div>
-                    <div>
-                        <label >کد امنیتی</label>
-                        <CaptchaImg ref={this.refreshCaptcha} />
-                        <input type='text' name='captcha' id='captcha' placeholder='captcha' onClick={this.handleDelError} />
-                        <div id='captchaAlert'></div>
-                    </div>
-                    <button type='submit'  >ارسال</button>
-                </form>
+                         ]} 
+                    />
+                    <Input label='تعداد محصول' id='numOrder' star='ok'blur={handleValue} />
+                    <Textarea label='شرحی از محصول' id='dis' blur={handleValue}/>
+                    <Input label='نام موبایل' id='mobeil' star='ok' blur={handleValue} />
+                    <State star='ok' getCity={getCity} change={handleValue}/>
+                    <City star='ok' stateName={stateName} change={handleValue}/>
+                    <Captcha ref={changeCaptcha}/> 
+                    <Submit class='btn-success btn-block' value='ثبت'/>
+                </form> 
             </div>
         )
-    }
+    
 
 }
-export default withRouter (AddOrder);
+export default withRouter(AddOrder);

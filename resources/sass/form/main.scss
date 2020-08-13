@@ -1,0 +1,26 @@
+.labelForm{
+    margin: 0 0 1px;
+    padding: 0 5px 0 0;
+    
+}
+.star{
+    font-size: 6px;
+    display: inline-flex;
+    position: relative;
+    top:-5px;
+    right: 2px;
+    color: #a52640;
+}
+.validFeedback{
+    height: 20px;
+    margin: 0 0 2px;
+    padding: 0 6px;
+    font-size: 12px;
+    color:#a52640 ;
+}
+// @media (max-width :332px){
+//     .labelForm{
+//         font-size: 14px;
+        
+//     } 
+// }

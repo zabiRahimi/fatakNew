@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import Head from './head.js';
 import Slider from './slider.js';
 

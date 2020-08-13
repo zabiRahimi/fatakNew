@@ -1,16 +1,21 @@
 import React from 'react';
 
 const City =(props)=> {
+    const handel=(e)=>{
+       props.blur(e);
+       props.clikc(e);
+
+    }
     return (
-        <div>
+        <div className='divCity' >
             <div className='defaultCity city noCity'>
-                <select name='city' id='city' className='scity' onBlur={props.blur} onChange={props.click}  >
+                <select name='city' id='city' className='scity'onChange={(e)=>{handel(e)}}  >
                     <option value='' defaultValue='' className='defaultSelect'>انتخاب شهر</option>
                     <option value=''>ابتدا استان را انتخاب کنید</option>
                 </select>
             </div>
             <div className='city ardebilCity'>
-                <select name='city' id='city' className='scity' onBlur={props.blur} onChange={props.click}  >
+                <select name='city' id='city' className='scity'onChange={(e)=>{handel(e)}}  >
                     <option value='' defaultValue='' className='defaultSelect' >انتخاب شهر</option>
                     <option className="cityOff ostan1" value="اردبیل">اردبیل</option>
                     <option className="cityOff ostan1" value="بیله سوار">بیله سوار</option>
@@ -25,7 +30,7 @@ const City =(props)=> {
                 </select>
             </div>
             <div className='city esfahanCity'>
-                <select name='city' id='city' className='scity' onBlur={props.blur} onChange={props.click}  >
+                <select name='city' id='city' className='scity'onChange={(e)=>{handel(e)}}  >
                     <option value='' defaultValue='' className='defaultSelect'>انتخاب شهر</option>
                     <option className="cityOff ostan2" value="آران و بیدگل">آران و بیدگل</option>
                     <option className="cityOff ostan2" value="اردستان">اردستان</option>
@@ -54,7 +59,7 @@ const City =(props)=> {
                 </select>
             </div>
             <div className='city alborzCity'>
-                <select name='city' id='city' className='scity' onBlur={props.blur} onChange={props.click}  >
+                <select name='city' id='city' className='scity'onChange={(e)=>{handel(e)}}  >
                     <option value='' defaultValue='' className='defaultSelect'>انتخاب شهر</option>
                     <option className="cityOff ostan3" value="اشتهارد">اشتهارد</option>
                     <option className="cityOff ostan3" value="ساوجبلاغ">ساوجبلاغ</option>
@@ -65,7 +70,7 @@ const City =(props)=> {
                 </select>
             </div>
             <div className='city eilamCity'>
-                <select name='city' id='city' className='scity' onBlur={props.blur} onChange={props.click}  >
+                <select name='city' id='city' className='scity'onChange={(e)=>{handel(e)}}  >
                     <option value='' defaultValue='' className='defaultSelect'>انتخاب شهر</option>
                     <option className="cityOff ostan4" value="آبدانان">آبدانان</option>
                     <option className="cityOff ostan4" value="ایلام">ایلام</option>
@@ -79,7 +84,7 @@ const City =(props)=> {
                     <option className="cityOff ostan4" value="مهران">مهران</option>
                 </select>
             </div><div className='city azarbaijanSharghiCity'>
-                <select name='city' id='city' className='scity' onBlur={props.blur} onChange={props.click}  >
+                <select name='city' id='city' className='scity'onChange={(e)=>{handel(e)}}  >
                     <option value='' defaultValue='' className='defaultSelect'>انتخاب شهر</option>
                     <option className="cityOff ostan5" value="آذرشهر">آذرشهر</option>
                     <option className="cityOff ostan5" value="اسکو">اسکو</option>
@@ -104,7 +109,7 @@ const City =(props)=> {
                 </select>
             </div>
             <div className='city azarbaijanGhrbiCity'>
-                <select name='city' id='city' className='scity' onBlur={props.blur} onChange={props.click}  >
+                <select name='city' id='city' className='scity'onChange={(e)=>{handel(e)}}  >
                     <option value='' defaultValue='' className='defaultSelect'>انتخاب شهر</option>
                     <option className="cityOff ostan6" value="ارومیه">ارومیه</option>
                     <option className="cityOff ostan6" value="اشنویه">اشنویه</option>
@@ -126,7 +131,7 @@ const City =(props)=> {
                 </select>
             </div>
             <div className='city boshherCity'>
-                <select name='city' id='city' className='scity' onBlur={props.blur} onChange={props.click}  >
+                <select name='city' id='city' className='scity'onChange={(e)=>{handel(e)}}  >
                     <option value='' defaultValue='' className='defaultSelect'>انتخاب شهر</option>
                     <option className="cityOff ostan7" value="بوشهر">بوشهر</option>
                     <option className="cityOff ostan7" value="تنگستان">تنگستان</option>
@@ -141,7 +146,7 @@ const City =(props)=> {
                 </select>
             </div>
             <div className='city thranCity'>
-                <select name='city' id='city' className='scity' onBlur={props.blur} onChange={props.click}  >
+                <select name='city' id='city' className='scity'onChange={(e)=>{handel(e)}}  >
                     <option value='' defaultValue='' className='defaultSelect'>انتخاب شهر</option>
                     <option className="cityOff ostan8" value="اسلامشهر">اسلامشهر</option>
                     <option className="cityOff ostan8" value="بهارستان">بهارستان</option>
@@ -162,7 +167,7 @@ const City =(props)=> {
                 </select>
             </div>
             <div className='city charMahalBakhtiariCity'>
-                <select name='city' id='city' className='scity' onBlur={props.blur} onChange={props.click}  >
+                <select name='city' id='city' className='scity'onChange={(e)=>{handel(e)}}  >
                     <option value='' defaultValue='' className='defaultSelect'>انتخاب شهر</option>
                     <option className="cityOff ostan9" value="اردل">اردل</option>
                     <option className="cityOff ostan9" value="بروجن">بروجن</option>
@@ -176,7 +181,7 @@ const City =(props)=> {
                 </select>
             </div>
             <div className='city khrasanJonobiCity'>
-                <select name='city' id='city' className='scity' onBlur={props.blur} onChange={props.click}  >
+                <select name='city' id='city' className='scity'onChange={(e)=>{handel(e)}}  >
                     <option value='' defaultValue='' className='defaultSelect'>انتخاب شهر</option>
                     <option className="cityOff ostan10" value="بشرویه">بشرویه</option>
                     <option className="cityOff ostan10" value="بیرجند">بیرجند</option>
@@ -192,7 +197,7 @@ const City =(props)=> {
                 </select>
             </div>
             <div className='city khrasanRazaviCity'>
-                <select name='city' id='city' className='scity' onBlur={props.blur} onChange={props.click}  >
+                <select name='city' id='city' className='scity'onChange={(e)=>{handel(e)}}  >
                     <option value='' defaultValue='' className='defaultSelect'>انتخاب شهر</option>
                     <option className="cityOff ostan11" value="باخزر">باخزر</option>
                     <option className="cityOff ostan11" value="بردسکن">بردسکن</option>
@@ -225,7 +230,7 @@ const City =(props)=> {
                 </select>
             </div>
             <div className='city khrasanShomaliCity'>
-                <select name='city' id='city' className='scity' onBlur={props.blur} onChange={props.click}  >
+                <select name='city' id='city' className='scity'onChange={(e)=>{handel(e)}}  >
                     <option value='' defaultValue='' className='defaultSelect'>انتخاب شهر</option>
                     <option className="cityOff ostan12" value="اسفراین">اسفراین</option>
                     <option className="cityOff ostan12" value="بجنورد">بجنورد</option>
@@ -238,7 +243,7 @@ const City =(props)=> {
                 </select>
             </div>
             <div className='city khozestanCity'>
-                <select name='city' id='city' className='scity' onBlur={props.blur} onChange={props.click}  >
+                <select name='city' id='city' className='scity'onChange={(e)=>{handel(e)}}  >
                     <option value='' defaultValue='' className='defaultSelect'>انتخاب شهر</option>
                     <option className="cityOff ostan13" value="آبادان">آبادان</option>
                     <option className="cityOff ostan13" value="آغاجاری">آغاجاری</option>
@@ -270,7 +275,7 @@ const City =(props)=> {
                 </select>
             </div>
             <div className='city zanjanCity'>
-                <select name='city' id='city' className='scity' onBlur={props.blur} onChange={props.click}  >
+                <select name='city' id='city' className='scity'onChange={(e)=>{handel(e)}}  >
                     <option value='' defaultValue='' className='defaultSelect'>انتخاب شهر</option>
                     <option className="cityOff ostan14" value="ابهر">ابهر</option>
                     <option className="cityOff ostan14" value="ایجرود">ایجرود</option>
@@ -283,7 +288,7 @@ const City =(props)=> {
                 </select>
             </div>
             <div className='city semnanCity'>
-                <select name='city' id='city' className='scity' onBlur={props.blur} onChange={props.click}  >
+                <select name='city' id='city' className='scity'onChange={(e)=>{handel(e)}}  >
                     <option value='' defaultValue='' className='defaultSelect'>انتخاب شهر</option>
                     <option className="cityOff ostan15" value="آردان">آردان</option>
                     <option className="cityOff ostan15" value="دامغان">دامغان</option>
@@ -296,7 +301,7 @@ const City =(props)=> {
                 </select>
             </div>
             <div className='city sistanVaBlochstanCity'>
-                <select name='city' id='city' className='scity' onBlur={props.blur} onChange={props.click}  >
+                <select name='city' id='city' className='scity'onChange={(e)=>{handel(e)}}  >
                     <option value='' defaultValue='' className='defaultSelect'>انتخاب شهر</option>
                     <option className="cityOff ostan16" value="ایرانشهر">ایرانشهر</option>
                     <option className="cityOff ostan16" value="چابهار">چابهار</option>
@@ -319,7 +324,7 @@ const City =(props)=> {
                 </select>
             </div>
             <div className='city farsCity'>
-                <select name='city' id='city' className='scity' onBlur={props.blur} onChange={props.click}  >
+                <select name='city' id='city' className='scity'onChange={(e)=>{handel(e)}}  >
                     <option value='' defaultValue='' className='defaultSelect'>انتخاب شهر</option>
                     <option className="cityOff ostan17" value="آباده">آباده</option>
                     <option className="cityOff ostan17" value="اقلید">اقلید</option>
@@ -353,7 +358,7 @@ const City =(props)=> {
                 </select>
             </div>
             <div className='city ghazvinCity'>
-                <select name='city' id='city' className='scity' onBlur={props.blur} onChange={props.click}  >
+                <select name='city' id='city' className='scity'onChange={(e)=>{handel(e)}}  >
                     <option value='' defaultValue='' className='defaultSelect'>انتخاب شهر</option>
                     <option className="cityOff ostan18" value="آوج">آوج</option>
                     <option className="cityOff ostan18" value="آبیک">آبیک</option>
@@ -365,13 +370,13 @@ const City =(props)=> {
                 </select>
             </div>
             <div className='city ghomCity'>
-                <select name='city' id='city' className='scity' onBlur={props.blur} onChange={props.click}  >
+                <select name='city' id='city' className='scity'onChange={(e)=>{handel(e)}}  >
                     <option value='' defaultValue='' className='defaultSelect'>انتخاب شهر</option>
                     <option className="cityOff ostan19" value="قم">قم</option>
                 </select>
             </div>
             <div className='city kordestanCity'>
-                <select name='city' id='city' className='scity' onBlur={props.blur} onChange={props.click}  >
+                <select name='city' id='city' className='scity'onChange={(e)=>{handel(e)}}  >
                     <option value='' defaultValue='' className='defaultSelect'>انتخاب شهر</option>
                     <option className="cityOff ostan20" value="بانه">بانه</option>
                     <option className="cityOff ostan20" value="بیجار">بیجار</option>
@@ -386,7 +391,7 @@ const City =(props)=> {
                 </select>
             </div>
             <div className='city krmanCity'>
-                <select name='city' id='city' className='scity' onBlur={props.blur} onChange={props.click}  >
+                <select name='city' id='city' className='scity'onChange={(e)=>{handel(e)}}  >
                     <option value='' defaultValue='' className='defaultSelect'>انتخاب شهر</option>
                     <option className="cityOff ostan21" value="ارزوئیه">ارزوئیه</option>
                     <option className="cityOff ostan21" value="انار">انار</option>
@@ -414,7 +419,7 @@ const City =(props)=> {
                 </select>
             </div>
             <div className='city krmanShahCity'>
-                <select name='city' id='city' className='scity' onBlur={props.blur} onChange={props.click}  >
+                <select name='city' id='city' className='scity'onChange={(e)=>{handel(e)}}  >
                     <option value='' defaultValue='' className='defaultSelect'>انتخاب شهر</option>
                     <option className="cityOff ostan22" value="اسلام آبادغرب">اسلام آبادغرب</option>
                     <option className="cityOff ostan22" value="پاوه">پاوه</option>
@@ -437,7 +442,7 @@ const City =(props)=> {
                 </select>
             </div>
             <div className='city kohgiloihVaBoirahmadCity'>
-                <select name='city' id='city' className='scity' onBlur={props.blur} onChange={props.click}  >
+                <select name='city' id='city' className='scity'onChange={(e)=>{handel(e)}}  >
                     <option value='' defaultValue='' className='defaultSelect'>انتخاب شهر</option>
                     <option className="cityOff ostan23" value="باشت">باشت</option>
                     <option className="cityOff ostan23" value="بویراحمد">بویراحمد</option>
@@ -450,7 +455,7 @@ const City =(props)=> {
                 </select>
             </div>
             <div className='city golstanCity'>
-                <select name='city' id='city' className='scity' onBlur={props.blur} onChange={props.click}  >
+                <select name='city' id='city' className='scity'onChange={(e)=>{handel(e)}}  >
                     <option value='' defaultValue='' className='defaultSelect'>انتخاب شهر</option>
                     <option className="cityOff ostan24" value="آزادشهر">آزادشهر</option>
                     <option className="cityOff ostan24" value="آق قلا">آق قلا</option>
@@ -469,7 +474,7 @@ const City =(props)=> {
                 </select>
             </div>
             <div className='city gilanCity'>
-                <select name='city' id='city' className='scity' onBlur={props.blur} onChange={props.click}  >
+                <select name='city' id='city' className='scity'onChange={(e)=>{handel(e)}}  >
                     <option value='' defaultValue='' className='defaultSelect'>انتخاب شهر</option>
                     <option className="cityOff ostan25" value="آستارا">آستارا</option>
                     <option className="cityOff ostan25" value="آستانه اشرفیه">آستانه اشرفیه</option>
@@ -490,7 +495,7 @@ const City =(props)=> {
                 </select>
             </div>
             <div className='city lorstanCity'>
-                <select name='city' id='city' className='scity' onBlur={props.blur} onChange={props.click}  >
+                <select name='city' id='city' className='scity'onChange={(e)=>{handel(e)}}  >
                     <option value='' defaultValue='' className='defaultSelect'>انتخاب شهر</option>
                     <option className="cityOff ostan26" value="ازنا">ازنا</option>
                     <option className="cityOff ostan26" value="الیگودرز">الیگودرز</option>
@@ -505,7 +510,7 @@ const City =(props)=> {
                 </select>
             </div>
             <div className='city mazandaranCity'>
-                <select name='city' id='city' className='scity' onBlur={props.blur} onChange={props.click}  >
+                <select name='city' id='city' className='scity'onChange={(e)=>{handel(e)}}  >
                     <option value='' defaultValue='' className='defaultSelect'>انتخاب شهر</option>
                     <option className="cityOff ostan27" value="آمل">آمل</option>
                     <option className="cityOff ostan27" value="بابل">بابل</option>
@@ -530,7 +535,7 @@ const City =(props)=> {
                 </select>
             </div>
             <div className='city markaziCity'>
-                <select name='city' id='city' className='scity' onBlur={props.blur} onChange={props.click}  >
+                <select name='city' id='city' className='scity'onChange={(e)=>{handel(e)}}  >
                     <option value='' defaultValue='' className='defaultSelect'>انتخاب شهر</option>
                     <option className="cityOff ostan28" value="آشتیان">آشتیان</option>
                     <option className="cityOff ostan28" value="اراک">اراک</option>
@@ -547,7 +552,7 @@ const City =(props)=> {
                 </select>
             </div>
             <div className='city hormozganCity'>
-                <select name='city' id='city' className='scity' onBlur={props.blur} onChange={props.click}  >
+                <select name='city' id='city' className='scity'onChange={(e)=>{handel(e)}}  >
                     <option value='' defaultValue='' className='defaultSelect'>انتخاب شهر</option>
                     <option className="cityOff ostan29" value="ابوموسی">ابوموسی</option>
                     <option className="cityOff ostan29" value="بستک">بستک</option>
@@ -565,7 +570,7 @@ const City =(props)=> {
                 </select>
             </div>
             <div className='city hamdanCity'>
-                <select name='city' id='city' className='scity' onBlur={props.blur} onChange={props.click}  >
+                <select name='city' id='city' className='scity'onChange={(e)=>{handel(e)}}  >
                     <option value='' defaultValue='' className='defaultSelect'>انتخاب شهر</option>
                     <option className="cityOff ostan30" value="اسدآباد">اسدآباد</option>
                     <option className="cityOff ostan30" value="بهار">بهار</option>
@@ -579,7 +584,7 @@ const City =(props)=> {
                 </select>
             </div>
             <div className='city yazdCity'>
-                <select name='city' id='city' className='scity' onBlur={props.blur} onChange={props.click}  >
+                <select name='city' id='city' className='scity'onChange={(e)=>{handel(e)}}  >
                     <option value='' defaultValue='' className='defaultSelect'>انتخاب شهر</option>
                     <option className="cityOff ostan31" value="ابرکوه">ابرکوه</option>
                     <option className="cityOff ostan31" value="اردکان">اردکان</option>

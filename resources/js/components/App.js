@@ -17,6 +17,7 @@ import Order from './order/index.js';
 import ManageSocialNetwork from './manageSocialNetwork/index.js';
 import EndAddOrder from './order/endAddOrder.js';
 
+// import TestForm from './testForm';
 
 
 
@@ -62,6 +63,7 @@ class App extends Component {
                         <NoMatch />
                     </Route> */}
                 </Switch>
+                {/* <TestForm/> */}
                 <Content />
                 
 

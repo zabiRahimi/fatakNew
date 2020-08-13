@@ -5,8 +5,8 @@ return [
     'characters' => ['2', '3', '4', '6', '7', '8', '9', '1','0'],
     'default' => [
         'length' => 5,
-        'width' => 120,
-        'height' => 36,
+        // 'width' => 150,
+        'height' => 35,
         'quality' => 90,
         'math' => false,
     ],
