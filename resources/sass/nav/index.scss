@@ -5,7 +5,7 @@
 .NavMo{display: none;}
 
 .navCLeft img{height: 30px;}
-@media (max-width:768px){
+@media  only screen and (max-width:768px){
     .NavPc{display: none;}
     .NavMo{display: block;}
 }

@@ -1,0 +1,45 @@
+ /* 1200 , 992 , 768 , 576 , 454 , 332 */
+ .continerTitleLineGuide{
+    width: 100%;
+    display: flex;
+    margin: 5px 0;
+    align-items: flex-end;
+}
+.titleTitleLineGuide{
+    height: 30px;
+    display: flex;
+    padding: 0 100px 0 120px;
+    color: steelblue;
+    font-size: 22px;
+    background-color: #fff;
+    border-radius: 45px 6px 0 0;
+    border-bottom: 4px solid steelblue;
+    align-items: center;
+}
+.lineTitleLineGuide{
+    height:0;
+    display: flex;
+    flex-grow: 1;
+    border: 2px solid steelblue;
+    border-radius: 4px 0 0 4px;
+}
+
+@media only screen and (max-width:576px){
+    .titleTitleLineGuide{
+        padding: 0 70px 0 85px;
+        font-size: 20px;
+    }
+}
+@media only screen and (max-width:332px){
+    .titleTitleLineGuide{
+        height: 25px;
+        padding: 0 40px 0 50px;
+        font-size: 18px;
+        border-radius: 35px 4px 0 0;
+    border-bottom: 3px solid steelblue;
+    }
+    .lineTitleLineGuide{
+        border-bottom: 1px solid steelblue;
+        border-radius: 4px 0 0 4px;
+    }
+}

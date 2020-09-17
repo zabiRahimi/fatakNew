@@ -1,7 +1,7 @@
-import React,{ useState } from 'react';
+import { useState } from 'react';
 
-const useCity = (fun)=>{
-    const [stateName , setStateName] = useState(null);
+const useCity = (fun,defualtState)=>{
+    const [stateName , setStateName] = useState(defualtState);
     const getCity=(stateVal)=>{
         setStateName(stateVal)
         fun(perv=>({...perv , city:null}))

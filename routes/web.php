@@ -19,4 +19,12 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/refreshCaptcha', 'CaptchaController@refreshCaptcha');//ok
 Route::resource('/pros','ProController');
+
+
+Route::get('{any}', function () {
+    return view('home'); // or wherever your React app is bootstrapped.
+})->where('any', '.*');
 Route::resource('/order','OrderController');
+
+
+// Route::get('/{path?}', function($path = null){return View::make('home');})->where('path', '.*'); 

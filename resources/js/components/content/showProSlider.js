@@ -65,6 +65,7 @@ class ShowProSlider extends Component {
             </div>
         )
     }
+        
 }
 
 

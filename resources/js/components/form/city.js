@@ -13,11 +13,12 @@ const City = (props) => {
     const star = (props.star == 'ok') ? <i className="fa fa-star star" aria-hidden="true"></i> : '';
     const classInput = 'form-control inputForm ' + props.id + 'Input';
     const classValidFeedback = 'validFeedback' + ' ' + props.id + 'Feedback';
+    const citySelected=(props.value)? <option defaultValue={props.value}  key='ok'>{props.value}</option> : <option value='' defaultValue=''   key="0">انتخاب کنید</option>;
     const option = () => {
         switch (props.stateName) {
-            case 'ardebil':
+            case 'اردبیل':
                 return [
-                    <option value='' defaultValue='' key='1' className='defaultSelect' >انتخاب شهر</option>,
+                     
                     <option className="cityOff ostan1" value="اردبیل" key='2'>اردبیل</option>,
                     <option className="cityOff ostan1" value="بیله سوار" key='3'>بیله سوار</option>,
                     <option className="cityOff ostan1" value="پارس آباد" key='4'>پارس آباد</option>,
@@ -30,9 +31,9 @@ const City = (props) => {
                     <option className="cityOff ostan1" value="نیر" key='11'>نیر</option>,
                 ];
 
-            case 'esfahan':
+            case 'اصفهان':
                 return [
-                    <option value='' defaultValue='' key='1' className='defaultSelect'>انتخاب شهر</option>,
+                    
                     <option className="cityOff ostan2" value="آران و بیدگل" key='2'>آران و بیدگل</option>,
                     <option className="cityOff ostan2" value="اردستان" key='3'>اردستان</option>,
                     <option className="cityOff ostan2" value="اصفهان" key='4'>اصفهان</option>,
@@ -58,10 +59,10 @@ const City = (props) => {
                     <option className="cityOff ostan2" value="نجف آباد" key='24'>نجف آباد</option>,
                     <option className="cityOff ostan2" value="نطنز" key='25'>نطنز</option>,
                 ];
-            case 'alborz':
+            case 'البرز':
                 return [
 
-                    <option value='' defaultValue='' key='1' className='defaultSelect'>انتخاب شهر</option>,
+                    
                     <option className="cityOff ostan3" value="اشتهارد" key='2'>اشتهارد</option>,
                     <option className="cityOff ostan3" value="ساوجبلاغ" key='3'>ساوجبلاغ</option>,
                     <option className="cityOff ostan3" value="طالقان" key='4'>طالقان</option>,
@@ -69,10 +70,10 @@ const City = (props) => {
                     <option className="cityOff ostan3" value="نظرآباد" key='6'>نظرآباد</option>,
                     <option className="cityOff ostan3" value="فردیس" key='7'>فردیس</option>,
                 ];
-            case 'eilam':
+            case 'ایلام':
                 return [
 
-                    <option value='' defaultValue='' key='1' className='defaultSelect'>انتخاب شهر</option>,
+                    
                     <option className="cityOff ostan4" value="آبدانان" key='2'>آبدانان</option>,
                     <option className="cityOff ostan4" value="ایلام" key='3'>ایلام</option>,
                     <option className="cityOff ostan4" value="ایوان" key='4'>ایوان</option>,
@@ -84,10 +85,10 @@ const City = (props) => {
                     <option className="cityOff ostan4" value="ملکشاهی" key='10'>ملکشاهی</option>,
                     <option className="cityOff ostan4" value="مهران" key='11'>مهران</option>,
                 ];
-            case 'azarbaijanSharghi':
+            case 'آذربایجان شرقی':
                 return [
 
-                    <option value='' defaultValue='' key='1' className='defaultSelect'>انتخاب شهر</option>,
+                    
                     <option className="cityOff ostan5" value="آذرشهر" key='2'>آذرشهر</option>,
                     <option className="cityOff ostan5" value="اسکو" key='3'>اسکو</option>,
                     <option className="cityOff ostan5" value="اهر" key='4'>اهر</option>,
@@ -109,10 +110,10 @@ const City = (props) => {
                     <option className="cityOff ostan5" value="هشترود" key='20'>هشترود</option>,
                     <option className="cityOff ostan5" value="هورندا" key='21'>هورندا</option>,
                 ];
-            case 'azarbaijanGhrbi':
+            case 'آذربایجان غربی':
                 return [
 
-                    <option value='' defaultValue='' key='1' className='defaultSelect'>انتخاب شهر</option>,
+                    
                     <option className="cityOff ostan6" value="ارومیه" key='2'>ارومیه</option>,
                     <option className="cityOff ostan6" value="اشنویه" key='3'>اشنویه</option>,
                     <option className="cityOff ostan6" value="بومکان" key='4'>بومکان</option>,
@@ -131,10 +132,10 @@ const City = (props) => {
                     <option className="cityOff ostan6" value="میاندواب" key='17'>میاندواب</option>,
                     <option className="cityOff ostan6" value="نقده" key='18'>نقده</option>,
                 ];
-            case 'boshher':
+            case 'بوشهر':
                 return [
 
-                    <option value='' defaultValue='' key='1' className='defaultSelect'>انتخاب شهر</option>,
+                    
                     <option className="cityOff ostan7" value="بوشهر" key='2'>بوشهر</option>,
                     <option className="cityOff ostan7" value="تنگستان" key='3'>تنگستان</option>,
                     <option className="cityOff ostan7" value="جم" key='4'>جم</option>,
@@ -146,10 +147,10 @@ const City = (props) => {
                     <option className="cityOff ostan7" value="کنگان" key='10'>کنگان</option>,
                     <option className="cityOff ostan7" value="گناوه" key='11'>گناوه</option>,
                 ];
-            case 'thran':
+            case 'تهران':
                 return [
 
-                    <option value='' defaultValue='' key='1' className='defaultSelect'>انتخاب شهر</option>,
+                    
                     <option className="cityOff ostan8" value="اسلامشهر" key='2'>اسلامشهر</option>,
                     <option className="cityOff ostan8" value="بهارستان" key='3'>بهارستان</option>,
                     <option className="cityOff ostan8" value="پاکدشت" key='4'>پاکدشت</option>,
@@ -167,10 +168,11 @@ const City = (props) => {
                     <option className="cityOff ostan8" value="ملارد" key='16'>ملارد</option>,
                     <option className="cityOff ostan8" value="ورامین" key='17'>ورامین</option>,
                 ];
-            case 'charMahalBakhtiari':
+                <option value="چهار محال بختیاری" id='charMahalBakhtiari' onClick={(e) => { handleManyFun(e) }}>چهار محال بختیاری</option>
+            case 'چهار محال بختیاری':
                 return [
 
-                    <option value='' defaultValue='' key='1' className='defaultSelect'>انتخاب شهر</option>,
+                    
                     <option className="cityOff ostan9" value="اردل" key='2'>اردل</option>,
                     <option className="cityOff ostan9" value="بروجن" key='3'>بروجن</option>,
                     <option className="cityOff ostan9" value="بن" key='4'>بن</option>,
@@ -181,10 +183,10 @@ const City = (props) => {
                     <option className="cityOff ostan9" value="کیار" key='9'>کیار</option>,
                     <option className="cityOff ostan9" value="لردگان" key='10'>لردگان</option>,
                 ];
-            case 'khrasanJonobi':
+            case 'خراسان جنوبی':
                 return [
 
-                    <option value='' defaultValue='' key='1' className='defaultSelect'>انتخاب شهر</option>,
+                    
                     <option className="cityOff ostan10" value="بشرویه" key='2'>بشرویه</option>,
                     <option className="cityOff ostan10" value="بیرجند" key='3'>بیرجند</option>,
                     <option className="cityOff ostan10" value="خوسف" key='4'>خوسف</option>,
@@ -197,10 +199,10 @@ const City = (props) => {
                     <option className="cityOff ostan10" value="قائنات" key='11'>قائنات</option>,
                     <option className="cityOff ostan10" value="نهبندان" key='12'>نهبندان</option>,
                 ];
-            case 'khrasanRazavi':
+            case 'خراسان رضوی':
                 return [
 
-                    <option value='' defaultValue='' key='1' className='defaultSelect'>انتخاب شهر</option>,
+                    
                     <option className="cityOff ostan11" value="باخزر" key='2'>باخزر</option>,
                     <option className="cityOff ostan11" value="بردسکن" key='3'>بردسکن</option>,
                     <option className="cityOff ostan11" value="بجستان" key='4'>بجستان</option>,
@@ -230,10 +232,10 @@ const City = (props) => {
                     <option className="cityOff ostan11" value="مه ولات" key='28'>مه ولات</option>,
                     <option className="cityOff ostan11" value="نیشابور" key='29'>نیشابور</option>,
                 ];
-            case 'khrasanShomali':
+            case 'خراسان شمالی':
                 return [
 
-                    <option value='' defaultValue='' key='1' className='defaultSelect'>انتخاب شهر</option>,
+                    
                     <option className="cityOff ostan12" value="اسفراین" key='2'>اسفراین</option>,
                     <option className="cityOff ostan12" value="بجنورد" key='3'>بجنورد</option>,
                     <option className="cityOff ostan12" value="جاجرم" key='4'>جاجرم</option>,
@@ -243,10 +245,10 @@ const City = (props) => {
                     <option className="cityOff ostan12" value="مانه و سملقان" key='8'>مانه و سملقان</option>,
                     <option className="cityOff ostan12" value="راز و جرگلان" key='9'>راز و جرگلان</option>,
                 ];
-            case 'khozestan':
+            case 'خوزستان':
                 return [
 
-                    <option value='' defaultValue='' key='1' className='defaultSelect'>انتخاب شهر</option>,
+                    
                     <option className="cityOff ostan13" value="آبادان" key='2'>آبادان</option>,
                     <option className="cityOff ostan13" value="آغاجاری" key='3'>آغاجاری</option>,
                     <option className="cityOff ostan13" value="امیدیه" key='4'>امیدیه</option>,
@@ -275,10 +277,10 @@ const City = (props) => {
                     <option className="cityOff ostan13" value="هندیجان" key='28'>هندیجان</option>,
                     <option className="cityOff ostan13" value="هویزه" key='29'>هویزه</option>,
                 ];
-            case 'zanjan':
+            case 'زنجان':
                 return [
 
-                    <option value='' defaultValue='' key='1' className='defaultSelect'>انتخاب شهر</option>,
+                    
                     <option className="cityOff ostan14" value="ابهر" key='2'>ابهر</option>,
                     <option className="cityOff ostan14" value="ایجرود" key='3'>ایجرود</option>,
                     <option className="cityOff ostan14" value="خدابنده" key='4'>خدابنده</option>,
@@ -288,10 +290,10 @@ const City = (props) => {
                     <option className="cityOff ostan14" value="طارم" key='8'>طارم</option>,
                     <option className="cityOff ostan14" value="ماهنشان" key='9'>ماهنشان</option>,
                 ];
-            case 'semnan':
+            case 'سمنان':
                 return [
 
-                    <option value='' defaultValue='' key='1' className='defaultSelect'>انتخاب شهر</option>,
+                    
                     <option className="cityOff ostan15" value="آردان" key='2'>آردان</option>,
                     <option className="cityOff ostan15" value="دامغان" key='3'>دامغان</option>,
                     <option className="cityOff ostan15" value="سرخه" key='4'>سرخه</option>,
@@ -301,10 +303,10 @@ const City = (props) => {
                     <option className="cityOff ostan15" value="مهدی شهر" key='8'>مهدی شهر</option>,
                     <option className="cityOff ostan15" value="میامی" key='9'>میامی</option>,
                 ];
-            case 'sistanVaBlochstan':
+            case 'سیستان و بلوچستان':
                 return [
 
-                    <option value='' defaultValue='' key='1' className='defaultSelect'>انتخاب شهر</option>,
+                    
                     <option className="cityOff ostan16" value="ایرانشهر" key='2'>ایرانشهر</option>,
                     <option className="cityOff ostan16" value="چابهار" key='3'>چابهار</option>,
                     <option className="cityOff ostan16" value="خاش" key='4'>خاش</option>,
@@ -324,10 +326,10 @@ const City = (props) => {
                     <option className="cityOff ostan16" value="هامون" key='18'>هامون</option>,
                     <option className="cityOff ostan16" value="هیرمند" key='19'>هیرمند</option>,
                 ];
-            case 'fars':
+            case 'فارس':
                 return [
 
-                    <option value='' defaultValue='' key='1' className='defaultSelect'>انتخاب شهر</option>,
+                    
                     <option className="cityOff ostan17" value="آباده" key='2'>آباده</option>,
                     <option className="cityOff ostan17" value="اقلید" key='3'>اقلید</option>,
                     <option className="cityOff ostan17" value="ارسنجان" key='4'>ارسنجان</option>,
@@ -358,10 +360,10 @@ const City = (props) => {
                     <option className="cityOff ostan17" value="مهر" key='29'>مهر</option>,
                     <option className="cityOff ostan17" value="نی ریز" key='30'>نی ریز</option>,
                 ];
-            case 'ghazvin':
+            case 'قزوین':
                 return [
 
-                    <option value='' defaultValue='' key='1' className='defaultSelect'>انتخاب شهر</option>,
+                    
                     <option className="cityOff ostan18" value="آوج" key='2'>آوج</option>,
                     <option className="cityOff ostan18" value="آبیک" key='3'>آبیک</option>,
                     <option className="cityOff ostan18" value="البرز" key='4'>البرز</option>,
@@ -369,16 +371,16 @@ const City = (props) => {
                     <option className="cityOff ostan18" value="تاکستان" key='6'>تاکستان</option>,
                     <option className="cityOff ostan18" value="قزوین" key='7'>قزوین</option>,
                 ];
-            case 'ghom':
+            case 'قم':
                 return [
 
-                    <option value='' defaultValue='' key='1' className='defaultSelect'>انتخاب شهر</option>,
+                    
                     <option className="cityOff ostan19" value="قم" key='2'>قم</option>,
                 ];
-            case 'kordestan':
+            case 'کردستان':
                 return [
 
-                    <option value='' defaultValue='' key='1' className='defaultSelect'>انتخاب شهر</option>,
+                    
                     <option className="cityOff ostan20" value="بانه" key='2'>بانه</option>,
                     <option className="cityOff ostan20" value="بیجار" key='3'>بیجار</option>,
                     <option className="cityOff ostan20" value="دهگلان" key='4'>دهگلان</option>,
@@ -390,10 +392,10 @@ const City = (props) => {
                     <option className="cityOff ostan20" value="کامیاران" key='10'>کامیاران</option>,
                     <option className="cityOff ostan20" value="مریوان" key='11'>مریوان</option>,
                 ];
-            case 'krman':
+            case 'کرمان':
                 return [
 
-                    <option value='' defaultValue='' key='1' className='defaultSelect'>انتخاب شهر</option>,
+                    
                     <option className="cityOff ostan21" value="ارزوئیه" key='2'>ارزوئیه</option>,
                     <option className="cityOff ostan21" value="انار" key='3'>انار</option>,
                     <option className="cityOff ostan21" value="بافت" key='4'>بافت</option>,
@@ -418,10 +420,10 @@ const City = (props) => {
                     <option className="cityOff ostan21" value="منوجان" key='23'>منوجان</option>,
                     <option className="cityOff ostan21" value="فرماشیر" key='24'>فرماشیر</option>,
                 ];
-            case 'krmanShah':
+            case 'کرمانشاه':
                 return [
 
-                    <option value='' defaultValue='' key='1' className='defaultSelect'>انتخاب شهر</option>,
+                    
                     <option className="cityOff ostan22" value="اسلام آبادغرب" key='2'>اسلام آبادغرب</option>,
                     <option className="cityOff ostan22" value="پاوه" key='3'>پاوه</option>,
                     <option className="cityOff ostan22" value="ثلاث باباجانی" key='4'>ثلاث باباجانی</option>,
@@ -441,10 +443,10 @@ const City = (props) => {
                     <option className="cityOff ostan22" value="گیلان غرب" key='18'>گیلان غرب</option>,
                     <option className="cityOff ostan22" value="هرسین" key='19'>هرسین</option>,
                 ];
-            case 'kohgiloihVaBoirahmad':
+            case 'کهگیلویه و بویراحمد':
                 return [
 
-                    <option value='' defaultValue='' key='1' className='defaultSelect'>انتخاب شهر</option>,
+                    
                     <option className="cityOff ostan23" value="باشت" key='2'>باشت</option>,
                     <option className="cityOff ostan23" value="بویراحمد" key='3'>بویراحمد</option>,
                     <option className="cityOff ostan23" value="بهمئی" key='4'>بهمئی</option>,
@@ -454,10 +456,10 @@ const City = (props) => {
                     <option className="cityOff ostan23" value="گچساران" key='8'>گچساران</option>,
                     <option className="cityOff ostan23" value="لنده" key='9'>لنده</option>,
                 ];
-            case 'golstan':
+            case 'گلستان':
                 return [
 
-                    <option value='' defaultValue='' key='1' className='defaultSelect'>انتخاب شهر</option>,
+                    
                     <option className="cityOff ostan24" value="آزادشهر" key='2'>آزادشهر</option>,
                     <option className="cityOff ostan24" value="آق قلا" key='3'>آق قلا</option>,
                     <option className="cityOff ostan24" value="گز" key='4'>گز</option>,
@@ -473,10 +475,10 @@ const City = (props) => {
                     <option className="cityOff ostan24" value="مراوه تپه" key='14'>مراوه تپه</option>,
                     <option className="cityOff ostan24" value="مینودشت" key='15'>مینودشت</option>,
                 ];
-            case 'gilan':
+            case 'گیلان':
                 return [
 
-                    <option value='' defaultValue='' key='1' className='defaultSelect'>انتخاب شهر</option>,
+                    
                     <option className="cityOff ostan25" value="آستارا" key='2'>آستارا</option>,
                     <option className="cityOff ostan25" value="آستانه اشرفیه" key='3'>آستانه اشرفیه</option>,
                     <option className="cityOff ostan25" value="املش" key='4'>املش</option>,
@@ -494,10 +496,10 @@ const City = (props) => {
                     <option className="cityOff ostan25" value="لنگرود" key='16'>لنگرود</option>,
                     <option className="cityOff ostan25" value="ماسال" key='17'>ماسال</option>,
                 ];
-            case 'lorstan':
+            case 'لرستان':
                 return [
 
-                    <option value='' defaultValue='' key='1' className='defaultSelect'>انتخاب شهر</option>,
+                    
                     <option className="cityOff ostan26" value="ازنا" key='2'>ازنا</option>,
                     <option className="cityOff ostan26" value="الیگودرز" key='3'>الیگودرز</option>,
                     <option className="cityOff ostan26" value="بروجرد" key='4'>بروجرد</option>,
@@ -509,10 +511,10 @@ const City = (props) => {
                     <option className="cityOff ostan26" value="سلسله" key='10'>سلسله</option>,
                     <option className="cityOff ostan26" value="کوهدشت" key='11'>کوهدشت</option>,
                 ];
-            case 'mazandaran':
+            case 'مازندران':
                 return [
 
-                    <option value='' defaultValue='' key='1' className='defaultSelect'>انتخاب شهر</option>,
+                    
                     <option className="cityOff ostan27" value="آمل" key='2'>آمل</option>,
                     <option className="cityOff ostan27" value="بابل" key='3'>بابل</option>,
                     <option className="cityOff ostan27" value="بابلسر" key='4'>بابلسر</option>,
@@ -534,10 +536,10 @@ const City = (props) => {
                     <option className="cityOff ostan27" value="نوشهر" key='20'>نوشهر</option>,
                     <option className="cityOff ostan27" value="نکا" key='21'>نکا</option>,
                 ];
-            case 'markazi':
+            case 'مرکزی':
                 return [
 
-                    <option value='' defaultValue='' key='1' className='defaultSelect'>انتخاب شهر</option>,
+                    
                     <option className="cityOff ostan28" value="آشتیان" key='2'>آشتیان</option>,
                     <option className="cityOff ostan28" value="اراک" key='3'>اراک</option>,
                     <option className="cityOff ostan28" value="تفرش" key='4'>تفرش</option>,
@@ -551,10 +553,10 @@ const City = (props) => {
                     <option className="cityOff ostan28" value="فراهان" key='12'>فراهان</option>,
                     <option className="cityOff ostan28" value="محلات" key='13'>محلات</option>,
                 ];
-            case 'hormozgan':
+            case 'هرمزگان':
                 return [
 
-                    <option value='' defaultValue='' key='1' className='defaultSelect'>انتخاب شهر</option>,
+                    
                     <option className="cityOff ostan29" value="ابوموسی" key='2'>ابوموسی</option>,
                     <option className="cityOff ostan29" value="بستک" key='3'>بستک</option>,
                     <option className="cityOff ostan29" value="بشاگرد" key='4'>بشاگرد</option>,
@@ -569,9 +571,9 @@ const City = (props) => {
                     <option className="cityOff ostan29" value="قشم" key='13'>قشم</option>,
                     <option className="cityOff ostan29" value="میناب" key='14'>میناب</option>,
                 ];
-            case 'hamdan':
+            case 'همدان':
                 return [
-                    <option value='' defaultValue='' key='1' className='defaultSelect'>انتخاب شهر</option>,
+                    
                     <option className="cityOff ostan30" value="اسدآباد" key='2'>اسدآباد</option>,
                     <option className="cityOff ostan30" value="بهار" key='3'>بهار</option>,
                     <option className="cityOff ostan30" value="توسیرکان" key='4'>توسیرکان</option>,
@@ -582,10 +584,10 @@ const City = (props) => {
                     <option className="cityOff ostan30" value="نهاوند" key='9'>نهاوند</option>,
                     <option className="cityOff ostan30" value="همدان" key='10'>همدان</option>,
                 ];
-            case 'yazd':
+            case 'یزد':
                 return [
 
-                    <option value='' defaultValue='' key='1' className='defaultSelect'>انتخاب شهر</option>,
+                    
                     <option className="cityOff ostan31" value="ابرکوه" key='2'>ابرکوه</option>,
                     <option className="cityOff ostan31" value="اردکان" key='3'>اردکان</option>,
                     <option className="cityOff ostan31" value="اشکذر" key='4'>اشکذر</option>,
@@ -600,8 +602,7 @@ const City = (props) => {
 
             default:
                 return [
-                    <option value='' defaultValue='' key='1' >انتخاب شهر</option>,
-                    // <option value='' key='2'>ابتدا استان را انتخاب کنید</option>,
+                    
                     <optgroup label='ابتدا استان را انتخاب کنید' key='2'></optgroup>
                 ]
                     ;
@@ -618,6 +619,7 @@ const City = (props) => {
             </label>
             {/* onChange={(e) => { handleChange(e) }} */}
             <select className="form-control citySelect selectForm" id='city' onChange={(e) => { handleChange(e) }}>
+                {citySelected}
                 {option()}
             </select>
 

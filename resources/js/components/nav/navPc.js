@@ -43,10 +43,10 @@ class NavPc extends Component {
                             </div>
                         </div>
                         <ul className="menuPcUlSub">
-                            <li className=""><Link to={{pathname:"/order" , showComponentOrder:'addOrder'}}>سفارش</Link></li>
-                            <li className=""><Link to={{pathname:"/order" , showComponentOrder:'pursueOrder'}}>پیگیری سفارش</Link></li>
-                            <li className=""><Link to={{pathname:"/order" , showComponentOrder:'pursueBuy'}}>پیگیری خرید</Link></li>
-                            <li className=""><Link to={{pathname:"/order" , showComponentOrder:'guideOrder'}}>راهنما</Link></li>
+                            <li className=""><Link to={{pathname:"/order/addOrder" , showComponentOrder:'addOrder'}}>سفارش</Link></li>
+                            <li className=""><Link to={{pathname:"/order/pursueOrder" , showComponentOrder:'pursueOrder'}}>پیگیری سفارش</Link></li>
+                            <li className=""><Link to={{pathname:"/order/pursueBuy" , showComponentOrder:'pursueBuy'}}>پیگیری خرید</Link></li>
+                            <li className=""><Link to={{pathname:"/order/guideOrder" , showComponentOrder:'guideOrder'}}>راهنما</Link></li>
                         </ul>
                     </li>
                     <li className="" id="channelLiPc"onClick={this.showUlSubPc}>

@@ -11,7 +11,7 @@
     <meta http-equiv="Expires" content="-1" />
 
     <title>fataknew</title>
-
+    <!-- <base href="/"> -->
     <!-- Scripts -->
 
 
@@ -26,6 +26,10 @@
     <link href="\css\addOrerAndFollowUpOrder.css" rel="stylesheet">
     <link href="\css\showProSlider.css" rel="stylesheet">
     <link href="\css\form.css" rel="stylesheet">
+    <link href="\css\headPage.css" rel="stylesheet">
+    <link href="\css\guideOrder.css" rel="stylesheet">
+    <link href="\css\guideStyle.css" rel="stylesheet">
+    
 
 
 </head>
@@ -34,7 +38,7 @@
             @yield('content')
 
     </div>
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}" defer ></script>
     <!-- <script
 			  src="https://code.jquery.com/jquery-3.5.1.min.js"
 			  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="

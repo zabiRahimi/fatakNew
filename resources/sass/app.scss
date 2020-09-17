@@ -7,6 +7,7 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
 @import '~@fortawesome/fontawesome-free/scss/brands';
 @import '~@fortawesome/fontawesome-free/scss/regular';
 @import '~@fortawesome/fontawesome-free/scss/solid';
@@ -26,6 +27,9 @@
 @import './header/header';
 @import './header/slider';
 
+@import './headPages/headPages';
+@import './navPages/navPages';
+
 @import './nav/index';
 @import './nav/navPc';
 @import './nav/navMo';
@@ -36,6 +40,13 @@
 @import './menuMiddle/addOrerAndFollowUpOrder';
 
 @import './footer/index.scss';
+
+@import './notFound/index.scss';
+
+@import './titleLine/index.scss';
+
+@import './navFloat/index.scss';
+
 
 
 

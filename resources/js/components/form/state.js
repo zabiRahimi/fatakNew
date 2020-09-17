@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import $ from "jquery";
+// import $ from "jquery";
 
 const State = (props) => {
     const handleCity = e => {
-        const { id } = e.target;
-        $("#city > option[value='']").prop('selected', true)
-        $('.stateSelect , .citySelect').css('border-color', '#ced4da');
-        $('.stateFeedback , .cityFeedback').html(' ');
-        props.getCity(id);
+        const { value } = e.target;
+        props.getCity(value);
 
 
+        setTimeout(`$("#city > option[value='']").prop('selected', true);
+                    $('.stateSelect , .citySelect').css('border-color', '#ced4da');
+                    $('.stateFeedback , .cityFeedback').html(' '); `)
     }
     const handleManyFun = (e) => {
         // props.delCity();
@@ -25,7 +25,7 @@ const State = (props) => {
     const star = (props.star == 'ok') ? <i className="fa fa-star star" aria-hidden="true"></i> : '';
     const classInput = 'form-control inputForm ' + props.id + 'Input';
     // const classValidFeedback = 'validFeedback' + ' ' + props.id + 'Feedback';
-
+    const stateSelected = (props.value) ? <option defaultValue={props.value} id='no' onClick={(e) => { handleManyFun(e) }}>{props.value}</option> : <option defaultValue='' id='no' onClick={(e) => { handleManyFun(e) }}>انتخاب استان</option>;
     return (
         <div className="form-group formGroupDiv">
             <label htmlFor='state' className='labelForm'>
@@ -33,8 +33,8 @@ const State = (props) => {
                 استان
                 {star}
             </label>
-            <select className="form-control stateSelect selectForm" name='state' id='state'  onChange={props.change}  >
-                <option value='' defaultValue='' id='no' onClick={(e) => { handleManyFun(e) }} >انتخاب استان</option>
+            <select className="form-control stateSelect selectForm" name='state' id='state' onChange={props.change}  >
+                {stateSelected}
                 <option value="اردبیل" id='ardebil' onClick={(e) => { handleManyFun(e) }}  >اردبیل</option>
                 <option value="اصفهان" id='esfahan' onClick={(e) => { handleManyFun(e) }} >اصفهان</option>
                 <option value="البرز" id='alborz' onClick={(e) => { handleManyFun(e) }} >البرز</option>

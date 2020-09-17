@@ -23,7 +23,7 @@ const Input = (props) => {
                 {star}
             </label>
             
-                <input type="text" className={classInput} id={props.id} value={props.value} onBlur={props.blur} onFocus={handleFocus}  />
+                <input type="text" className={classInput} id={props.id} defaultValue={props.value} onBlur={props.blur} onFocus={handleFocus}  />
                 
            
             <div className={classValidFeedback}>

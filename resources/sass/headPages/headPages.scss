@@ -1,0 +1,49 @@
+/* 1200 , 992 , 768 , 576 , 454 , 332 */
+.headPagesContainer{
+    width: 100%;
+    /* margin-bottom: 3px; */
+    padding: 0 15px;
+    display: flex;
+    justify-content:space-between;
+    border-top: 4px solid #26267c;
+    background-color: #ffffff;
+}
+.headPagesTitle{
+    display: flex;
+    align-items: center;
+}
+.headPagesTitle h1{
+    font-size: 22px;
+    color:#0f0f5c;
+}
+.headPagesBrand{
+    display: flex;
+    flex-flow: column;
+    justify-content: left;
+}
+.headPagesFa{
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+.headPagesIn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+@media  only screen and (max-width:576px){
+    .headPagesTitle h1{
+        font-size: 16px;
+        /* margin: 0; */
+    }
+    .headPagesFa{
+        font-size: 12px;
+        }
+        .headPagesIn{
+            font-size: 12px;
+        }
+}
+
+
+/* navPages css */
+

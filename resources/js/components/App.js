@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 // BrowserRouter as Router,
-import {  Switch, Route} from "react-router-dom";
+import {  Switch, Route, Link} from "react-router-dom";
 import Header from './header/index.js';
 import Nav from './nav/index.js';
 import MenuMiddle from './menuMiddle/index.js';
@@ -16,26 +16,31 @@ import Complaint from './complaint/index.js';
 import Order from './order/index.js';
 import ManageSocialNetwork from './manageSocialNetwork/index.js';
 import EndAddOrder from './order/endAddOrder.js';
+import HeadPages from './headPages/headPages.js';
+import NavPages from './navPages/navPages.js';
+
 
 // import TestForm from './testForm';
 
 
 
 class App extends Component {
-    componentDidMount() {
-        // Pusher.logToConsole = true;
-        console.log(React.version)
-    }
+    
+
+    
     render() {
-    return (
         
+        const gh=[<Header key='1' /> ,<Nav key='2'/>,
+            <MenuMiddle key='3'/> ]
+    return (
+            
             <div className="container2">
-                <Header />
-                <Nav />
-                <MenuMiddle />
+                
                 <Switch>
                     <Route exact path="/">
+                       {gh}
                         <Home />
+                        <Content />
                     </Route>
                     <Route path="/aboutUs">
                         <About />
@@ -49,8 +54,8 @@ class App extends Component {
                     <Route path="/order" >
                         <Order  />
                     </Route>
-                    <Route path="/endAddOrder" >
-                        <EndAddOrder />
+                    <Route path="/endAddOrder"  >
+                        <EndAddOrder /> 
                     </Route>
                     <Route path="/socialNetwork" >
                         <ManageSocialNetwork />
@@ -62,9 +67,11 @@ class App extends Component {
                     <Route path="*">
                         <NoMatch />
                     </Route> */}
+                    <Route path="*" component={NotFound} />
                 </Switch>
                 {/* <TestForm/> */}
-                <Content />
+                {/* <EndAddOrder /> */}
+                
                 
 
 
@@ -82,7 +89,7 @@ class App extends Component {
                     </Route>
                 </Switch> */}
                 
-                    <Footer />
+                    {/* <Footer /> */}
             </div>
         
     )
@@ -107,6 +114,27 @@ function NoMatch() {
       </div>
     );
   }
+
+  function Status({ code, children }) {
+    return (
+      <Route
+        render={({ staticContext }) => {
+          if (staticContext) staticContext.status = code;
+          return children;
+        }}
+      />
+    );
+  }
+  const NotFound=()=> {
+    return (
+        <div>rttt</div>
+    //   <Status code={404}>
+    //     <div>
+    //       <h1>Sorry, can’t find that.</h1>
+    //     </div>
+    //   </Status>
+    );
+  }  
 // export default function App() {
 //     return (
 //       <Router>

@@ -23,8 +23,8 @@ const Textarea = (props) => {
                 {star}
             </label>
             
-                <textarea type="text" className={classInput} id={props.id}  onBlur={props.blur} onFocus={handleFocus}  >
-                    {props.value}
+                <textarea type="text" className={classInput} id={props.id}  onBlur={props.blur} onFocus={handleFocus} defaultValue={props.value} >
+                    
                 </textarea>
                 
            

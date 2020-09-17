@@ -5,18 +5,18 @@
 .headImg img{height: 30px;}
 .headIn{width: 33.33333333%; display: flex;align-items: center;justify-content: left;}
 
-/* @media (max-width:1200px){}
-@media (max-width:992px){} */
-@media (max-width:768px){
+/* @media  only screen and (max-width:1200px){}
+@media  only screen and (max-width:992px){} */
+@media  only screen and (max-width:768px){
     .headContainer{padding: 2px 3px;}
 }
-/* @media (max-width:579px){} */
-@media (max-width:454px){
+/* @media  only screen and (max-width:579px){} */
+@media  only screen and (max-width:454px){
      .headFa{width: 37.5%; }
      .headImg{width: 25%;}
      .headImg img{height: 20px;}
      .headIn{width: 37.5%;}
 }
-@media (max-width:332px){ 
+@media  only screen and (max-width:332px){ 
     .headFa span{display: none;}
 }
