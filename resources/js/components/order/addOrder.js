@@ -17,10 +17,10 @@ import HeadPages from '../headPages/headPages';
 import NavPages from '../navPages/navPages';
 import GuideOrder from './guideOrder/index';
 import NavFloat from '../navFloat/navFloat';
-
+import LawOrder from './lawOrder/index';
+import useScrollTo from '../hooks/useScrollTo';
 
 const AddOrder = (props) => {
-
     const history = useHistory()
     const changeCaptcha = useRef()
     const [element, setElement] = useState({
@@ -33,14 +33,6 @@ const AddOrder = (props) => {
         state: null,
         city: null,
     })
-    const guideAddOrder = (e) => {
-        const offsetGuide = $("#idGuideAddOrder").offset();
-       $('html,body').animate({ scrollTop: offsetGuide.top }, 'slow');
-    }
-    const guideSelect=(id)=>{
-        const offsetId = $("#"+id).offset();
-       $('html,body').animate({ scrollTop: offsetId.top }, 1500);
-    }
     const handleValue = e => {
         let { id, value } = e.target;
         const check = /^[0-9]{10}$/;
@@ -105,15 +97,15 @@ const AddOrder = (props) => {
             })
     }
     const [stateName, getCity] = useCity(setElement, null)
-
+    const [handleScrollTo]=useScrollTo();
     return (
         <div className="endAddOrderContiner" id='orderContiner'>
             <HeadPages title='سفارش محصول' />
             <NavPages buttonRight={[
                 <button key='1'><Link to='/'>خانه</Link></button>,
                 <button key='2' onClick={() => history.goBack()}>بازگشت</button>,
-                <button key='4'><Link to=''>قوانین و مقررات</Link></button>,
-                <button key='3' onClick={guideAddOrder}>راهنما</button>,
+                <button key='4' onClick={()=>{handleScrollTo('lawOrder')}}>قوانین و مقررات</button>,
+                <button key='3' onClick={()=>{handleScrollTo('guideOrder')}}>راهنما</button>,
             ]} />
             <div className='cardEndAddOrder'>
                 <div>
@@ -147,7 +139,6 @@ const AddOrder = (props) => {
                         <option value="کارتن" key="6">کارتن</option>,
                         <option value="جین" key="7">جین</option>,
                         <option value="سایر" key="8">سایر</option>,
-
                     ]}
                 />
                 <Input label='تعداد محصول' id='numOrder' star='ok' blur={handleValue} />
@@ -158,17 +149,15 @@ const AddOrder = (props) => {
                 <Captcha ref={changeCaptcha} />
                 <Submit class='btn-success btn-block' value='ثبت' />
             </form>
-            <GuideOrder id='idGuideAddOrder'/>
-            <NavFloat idStartShow='idGuideAddOrder' btn={[
-                <button onClick={()=>{guideSelect('guideFirstlyOrder')}} key='1'>راهنمای سفارش اولیه</button>,
-                <button onClick={()=>{guideSelect('guidePursueOrder')}} key='2'>راهنمای پیگیری سفارش</button>,
-                <button onClick={()=>{guideSelect('guideBuyOrder')}} key='3'>راهنمای خرید محصول</button>,
-                <button onClick={()=>{guideSelect('guidePursueBuyOrder')}} key='4'>راهنمای پیگیری خرید</button>,
+            <GuideOrder id='guideOrder'/>
+            <NavFloat idStartShow='guideOrder' btn={[
+                <button onClick={()=>{handleScrollTo('guideFirstlyOrder')}} key='1'>راهنمای سفارش اولیه</button>,
+                <button onClick={()=>{handleScrollTo('guidePursueOrder')}} key='2'>راهنمای پیگیری سفارش</button>,
+                <button onClick={()=>{handleScrollTo('guideBuyOrder')}} key='3'>راهنمای خرید محصول</button>,
+                <button onClick={()=>{handleScrollTo('guidePursueBuyOrder')}} key='4'>راهنمای پیگیری خرید</button>,
             ]} />
+            <LawOrder id='lawOrder' />
         </div>
     );
-
-
-
 }
 export default withRouter(AddOrder);

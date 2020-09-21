@@ -1,0 +1,88 @@
+// /* 1200 , 992 , 768 , 576 , 454 , 332 */
+button:focus {
+    outline: none;
+}
+.appContiner{
+    width: 100%;
+    padding: 0 ;
+    display: flex;
+    flex-flow: column;
+}
+//کادر سفید با شادو 
+.appText{
+ width: 100%;
+ margin: 5px 0;
+ padding: 10px 15px;
+ background-color: #fff;
+ border-radius: 3px;
+ box-shadow:0 7px 14px 0 rgba(65,69,88,.1),0 3px 6px 0 rgba(0,0,0,.07) ;
+ display: flex;
+ flex-flow: column;
+}
+// تیتر هر کادر
+.appTitle{
+    width: 100%;
+    margin: 0 0 5px;
+    color:#266cad;
+    font-size: 20px;
+}
+.appP{
+    width: 100%;
+    margin: 0 0 5px;
+    font-size: 14px;
+    color:#474747;
+    text-align: justify;
+}
+.appOl{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style-position: inside;
+    list-style: none;
+    counter-reset: li;
+    
+}
+// content: counter(li);
+.appOl li::before {content: counter(li) ; color: #1a558d;
+    display: inline-block; width: 20px;
+    height: 20px;
+    font-size: 14px;
+    padding: 0;
+    margin-left: 8px; text-align: center; direction: ltr;
+    border-top: 1px solid #1a558d;
+    border-bottom: 1px solid #1a558d;
+    border-radius: 1em;
+}
+.appOl li{
+    margin: 10px 0;
+    counter-increment: li;
+    text-align: justify;
+    color: #3c3c52;
+}
+@media only screen and (max-width:768px){
+    .appText{
+        padding: 10px 12px;
+        
+       }
+       .appTitle{
+           font-size: 18px;
+       }
+}
+@media only screen and (max-width:576px){
+    .appText{
+        padding: 10px 8px;
+       }
+    .appOl li{
+        margin: 3px 0;
+    }
+}
+@media only screen and (max-width:332px){
+    .appText{
+        padding: 10px 8px 0;
+        
+       }
+       // تیتر هر کادر
+       .appTitle{
+           font-size: 16px;
+       }
+}

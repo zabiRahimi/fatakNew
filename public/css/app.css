@@ -17343,6 +17343,105 @@ readers do not read off random characters that represent icons */
   width: auto;
 }
 
+button:focus {
+  outline: none;
+}
+
+.appContiner {
+  width: 100%;
+  padding: 0;
+  display: flex;
+  flex-flow: column;
+}
+
+.appText {
+  width: 100%;
+  margin: 5px 0;
+  padding: 10px 15px;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 7px 14px 0 rgba(65, 69, 88, 0.1), 0 3px 6px 0 rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-flow: column;
+}
+
+.appTitle {
+  width: 100%;
+  margin: 0 0 5px;
+  color: #266cad;
+  font-size: 20px;
+}
+
+.appP {
+  width: 100%;
+  margin: 0 0 5px;
+  font-size: 14px;
+  color: #474747;
+  text-align: justify;
+}
+
+.appOl {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style-position: inside;
+  list-style: none;
+  counter-reset: li;
+}
+
+.appOl li::before {
+  content: counter(li);
+  color: #1a558d;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
+  padding: 0;
+  margin-left: 8px;
+  text-align: center;
+  direction: ltr;
+  border-top: 1px solid #1a558d;
+  border-bottom: 1px solid #1a558d;
+  border-radius: 1em;
+}
+
+.appOl li {
+  margin: 10px 0;
+  counter-increment: li;
+  text-align: justify;
+  color: #3c3c52;
+}
+
+@media only screen and (max-width: 768px) {
+  .appText {
+    padding: 10px 12px;
+  }
+
+  .appTitle {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .appText {
+    padding: 10px 8px;
+  }
+
+  .appOl li {
+    margin: 3px 0;
+  }
+}
+
+@media only screen and (max-width: 332px) {
+  .appText {
+    padding: 10px 8px 0;
+  }
+
+  .appTitle {
+    font-size: 16px;
+  }
+}
+
 .labelForm {
   margin: 0 0 1px;
   padding: 0 5px 0 0;
@@ -17733,6 +17832,51 @@ readers do not read off random characters that represent icons */
 
   .navLeft {
     flex-grow: 1;
+  }
+}
+
+/* 1200 , 992 , 768 , 576 , 454 , 332 */
+
+.scrollBackContainer {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  margin: calc(100vh - (100vh / 5)) 10px 0;
+  padding: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  position: fixed;
+  z-index: 100;
+  justify-content: flex-start;
+}
+
+.scrollBackContainer button {
+  width: 45px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #fff;
+  border: 1px solid #000;
+  box-shadow: 0 0 6px 2px #797979;
+  color: #49b9db;
+  font-size: 18px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .scrollBackContainer button {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-height: 332px) {
+  .scrollBackContainer {
+    margin: calc(100vh - (100vh / 3) - 20px) 10px 0;
   }
 }
 

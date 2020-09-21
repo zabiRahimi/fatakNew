@@ -18,6 +18,7 @@ import ManageSocialNetwork from './manageSocialNetwork/index.js';
 import EndAddOrder from './order/endAddOrder.js';
 import HeadPages from './headPages/headPages.js';
 import NavPages from './navPages/navPages.js';
+import ScrollBack from './scrollBack/index.js';
 
 
 // import TestForm from './testForm';
@@ -35,7 +36,7 @@ class App extends Component {
     return (
             
             <div className="container2">
-                
+                <ScrollBack />
                 <Switch>
                     <Route exact path="/">
                        {gh}
@@ -179,6 +180,3 @@ function Home() {
 
 
 export default App;
-// if (document.getElementById('app')) {
-//     ReactDOM.render(<App />, document.getElementById('app'));
-// }

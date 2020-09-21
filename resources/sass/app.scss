@@ -12,6 +12,8 @@
 @import '~@fortawesome/fontawesome-free/scss/regular';
 @import '~@fortawesome/fontawesome-free/scss/solid';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
+
+@import './main.scss';
  
 //form
 @import './form/index'; 
@@ -29,6 +31,8 @@
 
 @import './headPages/headPages';
 @import './navPages/navPages';
+
+@import './scrollBack/index.scss';
 
 @import './nav/index';
 @import './nav/navPc';

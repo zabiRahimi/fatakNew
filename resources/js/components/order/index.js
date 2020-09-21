@@ -6,18 +6,7 @@ import PursueBuy from './pursueBuy';
 import GuideOrder from './guideOrder';
 import NotFound from '../notFound';
 
-const Order = (props) => {
-    const history=useHistory()
-    let location = useLocation();
-
-    let showComponentOrder;
-    // switch (location.showComponentOrder) {
-    //     case 'addOrder':showComponentOrder=<AddOrder />; break;
-    //     case 'pursueOrder':showComponentOrder=<PursueOrder />; break;
-    //     case 'pursueBuy':showComponentOrder=<PursueBuy />; break;
-    //     case 'guideOrder':showComponentOrder=<GuideOrder />; break;
-    //     default :showComponentOrder=<AddOrder />; break; 
-    // }
+const Order = () => {
     
     return (
         <div className="" >
@@ -27,8 +16,6 @@ const Order = (props) => {
                 <Route path="/order/pursueBuy" exact component={PursueBuy} />
                 <Route path="/order/guideOrder" exact component={GuideOrder} />
                 <Route path="/order" component={NotFound} />
-
-                
             </Switch>
             {/* {showComponentOrder} */}
             {/* {this.location.pathname?location.pathname:''} */}
