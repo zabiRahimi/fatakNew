@@ -29,14 +29,14 @@ const AddOrder = (props) => {
         moduleOrder: null,
         numOrder: null,
         dis: null,
-        mobeil: null,
+        mobile: null,
         state: null,
         city: null,
     })
     const handleValue = e => {
         let { id, value } = e.target;
         const check = /^[0-9]{10}$/;
-        if (id == 'mobeil' && check.test(value)) {
+        if (id == 'mobile' && check.test(value)) {
             value = 0 + value;
         }
         setElement(prev => ({ ...prev, [id]: value }))
@@ -99,7 +99,7 @@ const AddOrder = (props) => {
     const [stateName, getCity] = useCity(setElement, null)
     const [handleScrollTo]=useScrollTo();
     return (
-        <div className="endAddOrderContiner" id='orderContiner'>
+        <div className="appMain" id='orderContiner'>
             <HeadPages title='سفارش محصول' />
             <NavPages buttonRight={[
                 <button key='1'><Link to='/'>خانه</Link></button>,
@@ -107,10 +107,10 @@ const AddOrder = (props) => {
                 <button key='4' onClick={()=>{handleScrollTo('lawOrder')}}>قوانین و مقررات</button>,
                 <button key='3' onClick={()=>{handleScrollTo('guideOrder')}}>راهنما</button>,
             ]} />
-            <div className='cardEndAddOrder'>
-                <div>
+            <div className='appText'>
+                <p className='appP'>
                     در فرم زیر اطلاعات محصول سفارشی خود را وارد کنید . روند کار به این صورت است که پس از ثبت سفارش خود بطور خودکار اطلاعات ثبت شده به همه فروشندگان در سراسر کشور ارسال خواهد شد ، و هر فروشنده ای که این محصول را برای فروش دارد یا قادر به تهیه آن است اطلاعات کامل محصول خود را وارد نموده و به اطلاع شما خواهد رسید و شما بنا به میل خود محصول یک فروشنده را خریداری می کنید .
-                    </div>
+                </p>
             </div>
             {/* note : css code form in form.scss   */}
             <form className='form' id='formAddOrder' onSubmit={handleSubmit}>
@@ -143,7 +143,7 @@ const AddOrder = (props) => {
                 />
                 <Input label='تعداد محصول' id='numOrder' star='ok' blur={handleValue} />
                 <Textarea label='شرحی از محصول' id='dis' blur={handleValue} />
-                <Input label='موبایل' id='mobeil' star='ok' blur={handleValue} />
+                <Input label='موبایل' id='mobile' star='ok' blur={handleValue} />
                 <State star='ok' getCity={getCity} change={handleValue} />
                 <City star='ok' stateName={stateName} change={handleValue} />
                 <Captcha ref={changeCaptcha} />

@@ -25,6 +25,7 @@ Route::get('{any}', function () {
     return view('home'); // or wherever your React app is bootstrapped.
 })->where('any', '.*');
 Route::resource('/order','OrderController');
+Route::resource('/shop','ShopController');
 
 
 // Route::get('/{path?}', function($path = null){return View::make('home');})->where('path', '.*'); 

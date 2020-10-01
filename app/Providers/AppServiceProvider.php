@@ -23,13 +23,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Validator::extend('mobeil', function($attribute, $value, $parameters, $validator) {
+        Validator::extend('mobile', function($attribute, $value, $parameters, $validator) {
             return preg_match('/^09[0-9]{9}$/', $value);
           });
           Validator::extend('tel', function($attribute, $value, $parameters, $validator) {
             return preg_match('/^0[0-9]{10}$/', $value);
           });
-          Validator::extend('pas', function($attribute, $value, $parameters, $validator) {
+          Validator::extend('pass', function($attribute, $value, $parameters, $validator) {
             return preg_match('/^[A-Za-z0-9_]{1,}$/', $value);
           });
           Validator::extend('codepost', function($attribute, $value, $parameters, $validator) {

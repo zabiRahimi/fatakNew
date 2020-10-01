@@ -1,16 +1,13 @@
 /* 1200 , 992 , 768 , 576 , 454 , 332 */
+.headerContiner{background-color: white;}
 .headContainer{width: 100%;padding: 2px 10px;display: flex;}
 .headFa{width: 33.33333333%; display: flex;align-items: center;justify-content: right;}
 .headImg{width: 33.33333333%; display: flex;align-items: center;justify-content: center;}
 .headImg img{height: 30px;}
 .headIn{width: 33.33333333%; display: flex;align-items: center;justify-content: left;}
-
-/* @media  only screen and (max-width:1200px){}
-@media  only screen and (max-width:992px){} */
 @media  only screen and (max-width:768px){
     .headContainer{padding: 2px 3px;}
 }
-/* @media  only screen and (max-width:579px){} */
 @media  only screen and (max-width:454px){
      .headFa{width: 37.5%; }
      .headImg{width: 25%;}

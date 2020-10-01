@@ -1,9 +1,9 @@
 // /* 1200 , 992 , 768 , 576 , 454 , 332 */
 .form{
-    width: 70%;
-    max-width: 550px;
+    width: 100%;
+    // max-width: 550px;
     margin: 20px 0;
-    padding: 10px 30px 20px;
+    padding: 10px 15% 20px;
     background-color: #fdfcfc;
     box-shadow: 0 5px 10px -3px hsla(0,0%,47%,.3);
     border-radius: 3px;
@@ -18,7 +18,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    background-color: #d7d7f1;
+    background-color: hsl(240, 0%, 92%);
     color:#2f2f63;
     border-radius: 2px;
 }

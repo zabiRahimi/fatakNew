@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import { Link } from "react-router-dom";
 class NavPc extends Component {
     showUlSubPc = (e) => {
@@ -72,7 +71,7 @@ class NavPc extends Component {
                             </div>
                         </div>
                         <ul className="menuPcUlSub">
-                            <li className=""><Link to="">ورود </Link></li>
+                            <li className=""><Link to="/shop/addShop">ورود </Link></li>
                             <li className=""><Link to="">ثبت نام</Link></li>
                             <li className=""><Link to="">راهنما</Link></li>
                         </ul>

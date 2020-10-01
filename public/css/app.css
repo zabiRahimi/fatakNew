@@ -17343,15 +17343,93 @@ readers do not read off random characters that represent icons */
   width: auto;
 }
 
-button:focus {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+.number {
+  display: inline-flex;
+  font-family: 'b yekan',"b koodak";
+  color: green;
+  font-style: normal;
+  background-color: #f1f1f7;
+  padding: 2px 3px 0;
+  margin: 0 3px;
+  line-height: 17px;
+  border-radius: 2px;
+}
+
+.tahoma {
+  font-family: Tahoma;
+}
+
+a {
+  cursor: pointer;
+}
+
+.a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.kama {
+  font-family: Tahoma, Geneva, sans-serif;
+  color: #000;
+}
+
+.br {
+  margin-bottom: 15px;
+}
+
+html,
+body {
+  width: 100%;
+  font-family: "b koodak", Arial, Helvetica, sans-serif;
+  direction: rtl;
+  text-align: right;
+  background-color: #f3f3f3;
+}
+
+.city {
+  display: none;
+}
+
+.defaultCity {
+  display: block;
+}
+
+button:focus,
+a:focus {
   outline: none;
 }
 
-.appContiner {
+.appMain {
+  width: 100%;
+  padding: 0 10px;
+  display: flex;
+  flex-flow: column;
+  justify-items: center;
+  align-items: center;
+}
+
+.appContainer {
   width: 100%;
   padding: 0;
   display: flex;
   flex-flow: column;
+}
+
+.appAlert {
+  width: 100%;
+  margin: 3px 0;
+  padding: 3px 6px;
+  display: flex;
+  justify-content: center;
 }
 
 .appText {
@@ -17380,16 +17458,41 @@ button:focus {
   text-align: justify;
 }
 
-.appOl {
+.appOlNumFlat,
+.appOlNumCircle {
   width: 100%;
   padding: 0;
   margin: 0;
-  list-style-position: inside;
   list-style: none;
   counter-reset: li;
 }
 
-.appOl li::before {
+.appOlNumFlat {
+  padding: 0 17px 0 0;
+}
+
+.appOlNumFlat li:before {
+  content: ". " counter(li);
+  color: #1a558d;
+  display: inline-block;
+  width: 24px;
+  height: 20px;
+  font-size: 14px;
+  padding: 0;
+  margin-left: 3px;
+  margin-right: -24px;
+  text-align: center;
+  direction: ltr;
+}
+
+.appOlNumFlat li {
+  margin: 10px 0;
+  counter-increment: li;
+  text-align: justify;
+  color: #3c3c52;
+}
+
+.appOlNumCircle li::before {
   content: counter(li);
   color: #1a558d;
   display: inline-block;
@@ -17405,11 +17508,32 @@ button:focus {
   border-radius: 1em;
 }
 
-.appOl li {
+.appOlNumCircle li {
   margin: 10px 0;
   counter-increment: li;
   text-align: justify;
   color: #3c3c52;
+}
+
+.appNavGuide {
+  width: 100%;
+  padding: 3px 6px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 7px 14px 0 rgba(65, 69, 88, 0.1), 0 3px 6px 0 rgba(0, 0, 0, 0.07);
+}
+
+.appNavGuide button {
+  display: flex;
+  margin: 1.5px 3px;
+  padding: 1px 3px;
+  color: #464545;
+  background-color: #ebe9e9;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid #929292;
 }
 
 @media only screen and (max-width: 768px) {
@@ -17422,7 +17546,18 @@ button:focus {
   }
 }
 
+@media only screen and (max-width: 630px) {
+  .appNavGuide button {
+    flex-grow: 1;
+    font-size: 14px;
+  }
+}
+
 @media only screen and (max-width: 576px) {
+  .appMain {
+    padding: 0 5px;
+  }
+
   .appText {
     padding: 10px 8px;
   }
@@ -17433,6 +17568,10 @@ button:focus {
 }
 
 @media only screen and (max-width: 332px) {
+  .appMain {
+    padding: 0 3px;
+  }
+
   .appText {
     padding: 10px 8px 0;
   }
@@ -17465,10 +17604,9 @@ button:focus {
 }
 
 .form {
-  width: 70%;
-  max-width: 550px;
+  width: 100%;
   margin: 20px 0;
-  padding: 10px 30px 20px;
+  padding: 10px 15% 20px;
   background-color: #fdfcfc;
   box-shadow: 0 5px 10px -3px rgba(120, 120, 120, 0.3);
   border-radius: 3px;
@@ -17485,7 +17623,7 @@ button:focus {
   width: 100%;
   display: flex;
   justify-content: center;
-  background-color: #d7d7f1;
+  background-color: #ebebeb;
   color: #2f2f63;
   border-radius: 2px;
 }
@@ -17612,11 +17750,112 @@ button:focus {
   }
 }
 
-.headerContiner {
-  background-color: white;
+.pass {
+  position: relative;
+}
+
+.passElementHide {
+  display: none;
+}
+
+.passEyeShow,
+.passEyeHide {
+  display: flex;
+  font-size: 24px;
+  position: absolute;
+  top: 31px;
+  right: calc(100% - 30px);
+  cursor: pointer;
+}
+
+.passEyeHide {
+  display: none;
+}
+
+@media only screen and (max-width: 576px) {
+  .passEyeShow,
+  .passEyeHide {
+    right: calc(100% - 26px);
+    font-size: 20px;
+    top: 29px;
+  }
+}
+
+.showProSliderContainer {
+  width: 100%;
+  margin: 38px 0;
+  padding: 0 5px;
+  display: flex;
+  flex-flow: column;
+}
+
+.showProSliderHead {
+  width: 100%;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  background-color: #eef0f5;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px 3px 0 0;
+}
+
+.showProSliderBody {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-flow: column;
+  /* align-items: center; */
+  background-color: #eaecf0;
+  border: 1px solid #e0e0e0;
+  border-top: none;
+  border-radius: 0 0 3px 3px;
+}
+
+.showProSliderSlik {
+  width: 100%;
+  padding: 10px;
+  /* display: flex; */
+}
+
+.slick-prev,
+.slick-next {
+  width: auto;
+  height: 35px;
+  margin: 0 15px;
+  z-index: 2;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: #b4b4b4;
+  font-size: 42px;
+}
+
+.divSlider {
+  width: 210px;
+  margin: 0 5px;
+  background-color: #fff;
+  display: flex;
+  flex-flow: column;
+}
+
+.divSliderImg {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: hotpink;
+}
+
+.divSliderImg img {
+  width: 150px;
 }
 
 /* 1200 , 992 , 768 , 576 , 454 , 332 */
+
+.headerContiner {
+  background-color: white;
+}
 
 .headContainer {
   width: 100%;
@@ -17649,16 +17888,11 @@ button:focus {
   justify-content: left;
 }
 
-/* @media  only screen and (max-width:1200px){}
-@media  only screen and (max-width:992px){} */
-
 @media only screen and (max-width: 768px) {
   .headContainer {
     padding: 2px 3px;
   }
 }
-
-/* @media  only screen and (max-width:579px){} */
 
 @media only screen and (max-width: 454px) {
   .headFa {
@@ -17739,19 +17973,18 @@ button:focus {
   }
 }
 
-/* navPages css */
-
 /* 1200 , 992 , 768 , 576 , 454 , 332 */
 
 .navPagesContainer {
   width: 100%;
   margin: 5px 0;
-  padding: 1px 5px 3px;
+  padding: 1px 1px 3px 5px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  background-color: #e4e4e4fb;
-  background-color: #b1dced;
+  background-color: #0d4585cb;
+  background: linear-gradient(90deg, #1363becb 0%, #0d4585cb 100%);
+  background: -webkit-linear-gradient(90deg, #1363becb 0%, #0d4585cb 100%);
   border-radius: 3px;
 }
 
@@ -17768,12 +18001,11 @@ button:focus {
 
 .navPagesRight button,
 .navLeft button {
-  background-color: #8f8e8ef3;
   background-color: #eef0f1;
   margin: 3px 5px 0 0;
   border: 1px solid #dadada;
-  border-bottom: 2px solid #96a2a7;
-  color: #8f8e8ef3;
+  border-bottom: 2px solid #acb5b9;
+  color: rgba(89, 89, 89, 0.953);
   border-radius: 4px 4px 5px 5px;
   display: flex;
   justify-content: center;
@@ -17781,40 +18013,36 @@ button:focus {
   box-shadow: 0 5px 10px -3px rgba(120, 120, 120, 0.3);
 }
 
-.navPagesRight button:first-child {
-  margin-right: 0;
-}
-
 .navPagesRight button a,
 .navLeft button a {
-  color: #8f8e8ef3;
+  color: rgba(89, 89, 89, 0.953);
 }
 
 .exit {
-  color: #a00f0f !important;
+  color: #870d0d !important;
   background-color: #e4caca !important;
 }
 
 .exit a {
-  color: #a00f0f !important;
+  color: #870d0d !important;
 }
 
 .edit {
-  color: #338bc2 !important;
-  background-color: #cbdae4 !important;
+  color: #0b5c8e !important;
+  background-color: #cddbe5 !important;
 }
 
 .edit a {
-  color: #338bc2 !important;
+  color: #0b5c8e !important;
 }
 
 .green {
-  color: #097512 !important;
+  color: #075f0e !important;
   background-color: #c9e4cb !important;
 }
 
 .green a {
-  color: #097512 !important;
+  color: #075f0e !important;
 }
 
 @media only screen and (max-width: 768px) {
@@ -18146,69 +18374,21 @@ button:focus {
 
 /* 1200 , 992 , 768 , 576 , 454 , 332 */
 
-.orderContiner {
-  width: 100%;
-  padding: 0 10px;
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-}
-
-@media only screen and (max-width: 576px) {
-  .orderContiner {
-    padding: 0 4px;
-  }
-}
-
-.endAddOrderContiner {
-  width: 100%;
-  padding: 0 10px;
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  background-color: #ecf1f9;
-}
-
-.alertEndAddOrder {
-  padding: 3px 6px;
-}
-
-.titleEndAddOrder {
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 5px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 4px;
-  background-color: #d1dae8;
-  color: #374453;
-  box-shadow: 0 7px 14px 0 rgba(65, 69, 88, 0.1), 0 3px 6px 0 rgba(0, 0, 0, 0.07);
-}
-
-.cardEndAddOrder {
-  width: 100%;
-  margin: 2px 0 10px;
-  padding: 5px 6px;
-  display: flex;
-  flex-flow: column;
-  background-color: #fff;
-  color: #262a30;
-  border-radius: 4px;
-  box-shadow: 0 7px 14px 0 rgba(65, 69, 88, 0.1), 0 3px 6px 0 rgba(0, 0, 0, 0.07);
-}
-
-.cardEndAddOrder div {
-  padding: 3px 0;
-  text-align: justify;
-}
-
 .menuMiddelContiner {
   width: 100%;
   margin: 10px 0 0;
   padding: 8px 0;
   display: flex;
   background-color: #fff;
+}
+
+.addOrderAndFollowUpContiner {
+  width: calc(50% - 30px);
+  margin: 0 15px;
+  padding: 5px;
+  display: flex;
+  background-color: #edeff1;
+  border-radius: 3px;
 }
 
 .footerContainer {
@@ -18305,6 +18485,8 @@ button:focus {
   display: flex;
   margin: 5px 0;
   align-items: flex-end;
+  background-color: #dddddf;
+  border-radius: 3px 6px 0 1px;
 }
 
 .titleTitleLineGuide {

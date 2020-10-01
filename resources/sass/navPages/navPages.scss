@@ -2,13 +2,14 @@
 .navPagesContainer{
     width: 100%;
     margin: 5px 0;
-    padding:1px 5px 3px;
+    padding:1px 1px 3px 5px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    background-color: #e4e4e4fb;
-    background-color: #b1dced;
-    // background-color: #eef0f1;
+    background-color: #0d4585cb;
+    background: linear-gradient(90deg, #1363becb 0%, #0d4585cb 100%);
+    background: -moz-linear-gradient(90deg, #1363becb 0%, #0d4585cb 100%);
+    background: -webkit-linear-gradient(90deg, #1363becb 0%, #0d4585cb 100%);
     border-radius: 3px;
 }
 .navPagesRight{
@@ -21,37 +22,33 @@
     flex-wrap: wrap;
 }
 .navPagesRight button , .navLeft button{
-    background-color: #8f8e8ef3;
     background-color: #eef0f1;
-
     margin:3px 5px 0 0;
     border: 1px solid #dadada;
-    border-bottom: 2px solid #96a2a7;
-    // color: #677a8d;
-    color: #8f8e8ef3;
+    border-bottom: 2px solid hsl(198, 9%, 70%);
+    color: hsla(0, 0%, 35%, 0.953);
     border-radius:4px 4px 5px 5px;
     display: flex;
     justify-content: center;
     flex-grow: 1;
     box-shadow: 0 5px 10px -3px hsla(0,0%,47%,.3);
 }
-.navPagesRight button:first-child{margin-right: 0;}
-.navPagesRight button a, .navLeft button a{color: #8f8e8ef3;}
+.navPagesRight button a, .navLeft button a{color: hsla(0, 0%, 35%, 0.953);}
 .exit{
-    color:#a00f0f !important;
+    color:hsl(0, 83%, 29%) !important;
     background-color:#e4caca !important;
 }
-.exit a{color:#a00f0f !important;}
+.exit a{color:hsl(0, 83%, 29%) !important;}
 .edit{
-    color: #338bc2 !important;
-    background-color:#cbdae4 !important;
+    color: hsl(203, 86%, 30%) !important;
+    background-color:hsl(204, 32%, 85%) !important;
 }
-.edit a{color:#338bc2 !important}
+.edit a{color:hsl(203, 86%, 30%) !important}
 .green{
-    color: #097512 !important;
+    color: hsl(125, 86%, 20%) !important;
     background-color:#c9e4cb !important;
 }
-.green a{color:#097512 !important}
+.green a{color:hsl(125, 86%, 20%) !important}
 @media  only screen and (max-width:768px){
     .navPagesContainer button{
         margin-right: 3px;

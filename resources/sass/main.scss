@@ -1,12 +1,43 @@
 // /* 1200 , 992 , 768 , 576 , 454 , 332 */
-button:focus {
+
+h1,h2,h3,h4,h5,h6{margin: 0;}
+.number{display: inline-flex; font-family:'b yekan',"b koodak"; color: green; font-style: normal;  background-color: #f1f1f7;padding: 2px 3px 0; margin: 0 3px; line-height: 17px; border-radius: 2px; }
+.tahoma{font-family: Tahoma;}
+a{cursor: pointer;}
+.a{text-decoration: none; color: inherit;}
+.kama{ font-family:Tahoma, Geneva, sans-serif ; color:#000}
+.br{margin-bottom: 15px;}
+html , body{width: 100%; font-family:"b koodak", Arial, Helvetica, sans-serif;direction:rtl;text-align: right;background-color: #f3f3f3;}
+.city{
+  display: none;
+}
+.defaultCity{
+  display: block;
+}
+button:focus , a:focus {
     outline: none;
 }
-.appContiner{
+.appMain{
+    width: 100%;
+    padding: 0 10px;
+    display: flex;
+    flex-flow: column;
+    // justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+.appContainer{
     width: 100%;
     padding: 0 ;
     display: flex;
     flex-flow: column;
+}
+.appAlert{
+    width: 100%;
+    margin: 3px 0;
+    padding: 3px 6px;
+    display: flex;
+    justify-content: center;
 }
 //کادر سفید با شادو 
 .appText{
@@ -33,17 +64,39 @@ button:focus {
     color:#474747;
     text-align: justify;
 }
-.appOl{
+.appOlNumFlat ,.appOlNumCircle {
     width: 100%;
     padding: 0;
     margin: 0;
-    list-style-position: inside;
+    // list-style-position: inside;
     list-style: none;
     counter-reset: li;
-    
 }
-// content: counter(li);
-.appOl li::before {content: counter(li) ; color: #1a558d;
+.appOlNumFlat{padding: 0 17px 0 0;}
+// لیست شماره گذاری شده ساده و تخت 
+.appOlNumFlat li:before{
+    content:'. ' counter(li) ;
+     color: #1a558d;
+    display: inline-block;
+    width: 24px;
+    height: 20px;
+    font-size: 14px;
+    padding: 0;
+    margin-left: 3px;
+    margin-right: -24px;
+     text-align: center; 
+     direction: ltr;
+}
+.appOlNumFlat li{
+    margin: 10px 0;
+    counter-increment: li;
+    text-align: justify;
+    color: #3c3c52;
+}
+// لیست شماره کذاری شده ، با دایره آبی رنگ شماره ها
+.appOlNumCircle li::before {
+    content: counter(li) ; 
+    color: #1a558d;
     display: inline-block; width: 20px;
     height: 20px;
     font-size: 14px;
@@ -53,12 +106,35 @@ button:focus {
     border-bottom: 1px solid #1a558d;
     border-radius: 1em;
 }
-.appOl li{
+.appOlNumCircle li{
     margin: 10px 0;
     counter-increment: li;
     text-align: justify;
     color: #3c3c52;
 }
+.appNavGuide{
+    width: 100%;
+    padding: 3px 6px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow:0 7px 14px 0 rgba(65,69,88,.1),0 3px 6px 0 rgba(0,0,0,.07) ;
+
+}
+
+.appNavGuide button{
+   display: flex;
+    margin:1.5px 3px;
+    padding:1px 3px;
+    color: #464545;
+    background-color: #ebe9e9;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid #929292;
+
+}
+
 @media only screen and (max-width:768px){
     .appText{
         padding: 10px 12px;
@@ -68,7 +144,16 @@ button:focus {
            font-size: 18px;
        }
 }
+@media only screen and (max-width:630px){
+    .appNavGuide button{
+        flex-grow: 1;
+        font-size: 14px;
+    }
+}
 @media only screen and (max-width:576px){
+    .appMain{
+        padding: 0 5px;
+    }
     .appText{
         padding: 10px 8px;
        }
@@ -77,6 +162,9 @@ button:focus {
     }
 }
 @media only screen and (max-width:332px){
+    .appMain{
+        padding: 0 3px;
+    }
     .appText{
         padding: 10px 8px 0;
         

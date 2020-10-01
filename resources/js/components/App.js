@@ -15,10 +15,13 @@ import Contact from './contactUs/index.js';
 import Complaint from './complaint/index.js';
 import Order from './order/index.js';
 import ManageSocialNetwork from './manageSocialNetwork/index.js';
-import EndAddOrder from './order/endAddOrder.js';
+// import EndAddOrder from './order/endAddOrder.js';
 import HeadPages from './headPages/headPages.js';
 import NavPages from './navPages/navPages.js';
+import Shop from './shop/index.js';
 import ScrollBack from './scrollBack/index.js';
+import EndAddOrder from './order/endAddOrder.js';
+import EndAddShop from './shop/endAddShop.js';
 
 
 // import TestForm from './testForm';
@@ -58,8 +61,14 @@ class App extends Component {
                     <Route path="/endAddOrder"  >
                         <EndAddOrder /> 
                     </Route>
+                    <Route path="/endAddShop"  >
+                        <EndAddShop /> 
+                    </Route>
                     <Route path="/socialNetwork" >
                         <ManageSocialNetwork />
+                    </Route>
+                    <Route path="/shop" >
+                        <Shop />
                     </Route>
                     {/* <Route path="/options">
                         <Users />

@@ -16,19 +16,12 @@
 
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <!-- <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> -->
 
     <!-- Styles -->
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="\css\main.css" rel="stylesheet">
-    <link href="\css\addOrerAndFollowUpOrder.css" rel="stylesheet">
-    <link href="\css\showProSlider.css" rel="stylesheet">
-    <link href="\css\form.css" rel="stylesheet">
-    <link href="\css\headPage.css" rel="stylesheet">
-    <link href="\css\guideOrder.css" rel="stylesheet">
-    <link href="\css\guideStyle.css" rel="stylesheet">
     
 
 

@@ -32,14 +32,14 @@ const EndAddOrder = (props) => {
         moduleOrder: stateV.moduleOrder,
         numOrder: stateV.numOrder,
         dis: stateV.dis,
-        mobeil: stateV.mobeil,
+        mobile: stateV.mobile,
         state: stateV.state,
         city: stateV.city,
     })
     const handleValue = e => {
         let { id, value } = e.target
         const check = /^[0-9]{10}$/
-        if (id == 'mobeil' && check.test(value)) {
+        if (id == 'mobile' && check.test(value)) {
             value = 0 + value
         }
         setElement(prev => ({ ...prev, [id]: value }))
@@ -113,35 +113,37 @@ const EndAddOrder = (props) => {
     }, []);
 
     return (
-        <div className='endAddOrderContiner'>
+        <div className='appMain'>
             <HeadPages title='مشاهده و ویرایش سفارش' />
             <NavPages buttonRight={[
                 <button key='1' onClick={() => { history.replace('/') }} >خانه</button>,
                 <button key='2' onClick={() => history.goBack()}>بازگشت</button>,
-                <button onClick={()=>{handleScrollTo('lawOrder')}} key='4'>قوانین و مقررات</button>,
-                <button onClick={()=>{handleScrollTo('guideOrder')}} key='3'>راهنما</button>,
+                <button onClick={() => { handleScrollTo('lawOrder') }} key='4'>قوانین و مقررات</button>,
+                <button onClick={() => { handleScrollTo('guideOrder') }} key='3'>راهنما</button>,
             ]}
                 buttonLeft={[
-                    <button key='1' className='edit' onClick={()=>{handleScrollTo('formAddOrder')}} >ویرایش</button>,
-                    <button key='2' className='green' onClick={() => { history.replace({ pathname: '/order/addOrder'}) }}>سفارش جدید</button>,
+                    <button key='1' className='edit' onClick={() => { handleScrollTo('formAddOrder') }} >ویرایش</button>,
+                    <button key='2' className='green' onClick={() => { history.replace({ pathname: '/order/addOrder' }) }}>سفارش جدید</button>,
                     <button key='3' className='exit' onClick={() => { history.replace('/') }}>خروج</button>,
                 ]} />
-            <div className='alert alert-success alertEndAddOrder'>
+            <div className='alert alert-success appAlert'>
                 سفارش شما با موفقیت ثبت شد . لطفا به نکات زیر توجه فرمایید !
             </div>
-            <div className='titleEndAddOrder'>
-                به نکات زیر توجه کنید !!
-            </div>
-            <div className='cardEndAddOrder'>
-                <div>
-                    1 . جهت پیگیری سفارش خود و اطلاع از پشنهادهای فروشندگان صرفا با شماره موبایل {element.mobeil} می توانید استفاده کنید .
-                </div>
-                <div>
-                    2 . شماره پیگیری سفارش شما {element.id} است . این شماره را یادادشت کنید .
-                </div>
-                <div>
-                    3 . جهت ویرایش اطلاعات خود می توانید از فرم زیر استفاده کنید .
-                </div>
+            
+            <div className='appText'>
+                <ol className='appOlNumFlat'>
+                    <li>
+                        جهت پیگیری سفارش خود صرفا با شماره موبایل <i className='number'> {element.mobile} </i> وارد شوید .
+                    </li>
+                    <li>
+                        شماره پیگیری شما <i className='number'>{element.id}</i> است . این شماره را یادداشت کنید .
+                    </li>
+                    <li>
+                        جهت ویرایش اطلاعات می توانید از فرم زیر استفاده کنید .
+                    </li>
+                    
+                </ol>
+                
             </div>
             <form className='form' id='formAddOrder' onSubmit={handleSubmit}>
                 <Title title='ویرایش اطلاعات' />
@@ -173,7 +175,7 @@ const EndAddOrder = (props) => {
                 />
                 <Input label='تعداد محصول' id='numOrder' star='ok' value={element.numOrder} blur={handleValue} />
                 <Textarea label='شرحی از محصول' id='dis' value={element.dis} blur={handleValue} />
-                <Input label='موبایل' id='mobeil' star='ok' value={element.mobeil} blur={handleValue} />
+                <Input label='موبایل' id='mobile' star='ok' value={element.mobile} blur={handleValue} />
                 <State star='ok' getCity={getCity} value={element.state} change={handleValue} />
                 <City star='ok' stateName={stateName} value={element.city} change={handleValue} />
                 <Captcha ref={changeCaptcha} />
