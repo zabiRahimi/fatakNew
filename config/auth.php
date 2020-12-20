@@ -46,6 +46,14 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+        'shop'  => [
+            'driver'  => 'session',
+            'provider' => 'shops',
+          ],
+          'shop-api' => [
+              'driver' => 'token',
+              'provider' => 'shops',
+          ],
     ],
 
     /*
@@ -70,7 +78,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
-
+        'shops' => [
+            'driver' => 'eloquent',
+            'model'  => App\Models\Shop::class,
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -99,6 +110,13 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
+        'shops' => [
+            'provider' => 'shops',
+            'table' => 'shop_password_resets',
+            'expire' => 60,
+            'throttle' => 60,//خودم گذاشتم چک شود!!
+    
+          ],
     ],
 
     /*

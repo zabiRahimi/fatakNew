@@ -100,18 +100,20 @@ const EndAddShop = (props) => {
         // const  = { ...element, captcha: $('#captcha').val() }
         axios.patch('/shop/' + stateShop.id, {pass: $('#pass').val(),id:stateShop.id}, { headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } })
             .then(response => {
+                $('#pass').val('');
                 Swal.fire({
-                    position: 'top',
+                    position: 'center',
                     icon: 'success',
                     title: 'رمز با موفقیت تغییر کرد .',
                     showConfirmButton: false,
-                    timer: 3000
+                    timer: 3000,
+                    onAfterClose: () => {
+                        history.replace('/endAddShop', response.data.shop);
+                        window.scrollTo(0, 0);
+                    }
                 })
             })
             .catch(error => {
-                // $('#captcha').val('')
-                // $('.captchaFeedback').html('')
-                // changeCaptcha.current.refreshCaptcha()
                 if (error.response.status == 422) {
                     const errorData = error.response.data.errors;
                     const firstError = Object.keys(errorData)[0];

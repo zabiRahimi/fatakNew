@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
+// use Illuminate\Validation\Rule;
 
 class StoreShop extends FormRequest
 {
@@ -47,14 +47,11 @@ class StoreShop extends FormRequest
     {   
       (!empty($this->id))? $id=',' . $this->id : $id='|';
         return [
-
-          
           'id'=>'sometimes|required|numeric',
           'name'=>'sometimes|required|name|min:3',
           'lastName'=>'sometimes|required|name|min:3',
           'mobile'=>'sometimes|required|mobile|unique:shops,mobile'. $id,
           'pass'=>'sometimes|required|pass|min:4',
-            
           'shop'=>'sometimes|required|pas|min:4|unique:shops,shop' . $id,
           'nationalCode'=>'sometimes|required|codemly|unique:shops,nationalCode'. $id,
           'state'=>'sometimes|required',
@@ -69,7 +66,6 @@ class StoreShop extends FormRequest
           'bank'=>'sometimes|required|farsi',
           'acceptanceOfRules'=>'sometimes|required|accepted',
           'captcha'=>'sometimes|required|captcha',
-          
         ];
     }
 }

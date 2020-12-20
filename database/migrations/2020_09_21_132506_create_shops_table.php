@@ -35,6 +35,7 @@ class CreateShopsTable extends Migration
             $table->string('shabaNumber' , 100)->nullable()->comment('شماره شبا');
             $table->string('accountOwner' , 32)->nullable()->comment('صاحب حساب');
             $table->string('bank' , 32)->nullable();
+            $table->rememberToken();
             $table->integer('date_ad');
             $table->integer('date_up');
             $table->string('rank' , 12)->nullable();

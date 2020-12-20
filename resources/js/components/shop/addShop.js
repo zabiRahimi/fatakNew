@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef,useContext } from 'react';
 import { withRouter, Link, useHistory } from "react-router-dom";
 import $ from "jquery";
 import Swal from 'sweetalert2';
@@ -15,8 +15,14 @@ import useScrollTo from '../hooks/useScrollTo';
 import GuideShop from './guideShop';
 import Pass from '../form/pass';
 import LawShop from './lawShop';
+import { useAuth } from "./auth";
 
+
+
+// import { AuthContext } from "./auth";
 const AddShop = (props) => {
+
+    console.log(useAuth());
     const history = useHistory()
     const changeCaptcha = useRef()
     const [element, setElement] = useState({
@@ -25,6 +31,8 @@ const AddShop = (props) => {
         mobile: null,
         pass: null,
     })
+    const {authTokens2, setAuthTokens } = useAuth();
+    console.log(authTokens2)
     const handleValue = e => {
         let { id, value } = e.target;
         const check = /^[0-9]{10}$/;
@@ -33,7 +41,7 @@ const AddShop = (props) => {
         }
         setElement(prev => ({ ...prev, [id]: value }))
         // // because in this fun to send only element , also geting errors for of this dont use fun then
-        axios.post('/shop', { [id]: value }, { headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } })
+        axios.post('/shop/register', { [id]: value }, { headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } })
             .catch((error) => {
                 if (error.response.status == 500) {
                     $('#' + id).css("border-color", "green");
@@ -54,9 +62,21 @@ const AddShop = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         let data = { ...element, captcha: $('#captcha').val() }
-        axios.post('/shop', data, { headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } })
+        axios.post('/shop/register', data, { headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } })
             .then(response => {
-                props.history.replace('/endAddShop', response.data.shop)
+                if (response.status === 200) {
+
+                    setAuthTokens(response.data);
+            
+                    // setLoggedIn(true);
+            
+                  } else {
+            
+                    // setIsError(true);
+            
+                  }
+            
+                // props.history.replace('/endAddShop', response.data.shop)
                 Swal.fire({
                     position: 'top',
                     icon: 'success',
@@ -66,31 +86,32 @@ const AddShop = (props) => {
                 })
             })
             .catch(error => {
-                $('#captcha').val('')
-                $('.captchaFeedback').html('')
-                changeCaptcha.current.refreshCaptcha()
-                if (error.response.status == 422) {
-                    const errorData = error.response.data.errors;
-                    const firstError = Object.keys(errorData)[0];
-                    const offset = $("#" + firstError).offset();
-                    $(document).scrollTop(offset.top - 80)
-                    for (let i in errorData) {
-                        $('#' + i).css("border-color", "red")
-                        $('.' + i + 'Feedback').html(errorData[i])
-                    }
-                }
-                else {
-                    const offset = $(".errorAll").offset();
-                    $(document).scrollTop(offset.top - 80)
-                    $('#formAddOrder').trigger('reset');
-                    for (let i in element) {
-                        setElement(perv => ({ ...perv, [i]: null }))
-                        $('#' + i).css("border-color", "#e3e9ef")
-                    }
-                    $('.errorAll').html(
-                        `<div class='alert alert-danger errorAll' >خطایی رخ داده است ، لطفا دوباره تلاش کنید .</div> `
-                    )
-                }
+                console.log(error)
+                // $('#captcha').val('')
+                // $('.captchaFeedback').html('')
+                // changeCaptcha.current.refreshCaptcha()
+                // if (error.response.status == 422) {
+                //     const errorData = error.response.data.errors;
+                //     const firstError = Object.keys(errorData)[0];
+                //     const offset = $("#" + firstError).offset();
+                //     $(document).scrollTop(offset.top - 80)
+                //     for (let i in errorData) {
+                //         $('#' + i).css("border-color", "red")
+                //         $('.' + i + 'Feedback').html(errorData[i])
+                //     }
+                // }
+                // else {
+                //     const offset = $(".errorAll").offset();
+                //     $(document).scrollTop(offset.top - 80)
+                //     $('#formAddOrder').trigger('reset');
+                //     for (let i in element) {
+                //         setElement(perv => ({ ...perv, [i]: null }))
+                //         $('#' + i).css("border-color", "#e3e9ef")
+                //     }
+                //     $('.errorAll').html(
+                //         `<div class='alert alert-danger errorAll' >خطایی رخ داده است ، لطفا دوباره تلاش کنید .</div> `
+                //     )
+                // }
             })
     }
     const [handleScrollTo]=useScrollTo();

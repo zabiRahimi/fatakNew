@@ -57,9 +57,9 @@ class NavPc extends Component {
                             </div>
                         </div>
                         <ul className="menuPcUlSub">
-                            <li className=""><Link to={{pathname:"/socialNetwork" , showComponentSocialNetwork:'loginSocialNetwork'}}>ورود</Link></li>
-                            <li className=""><Link to={{pathname:"/socialNetwork" , showComponentSocialNetwork:'signUpSocialNetwork'}}>ثبت نام</Link></li>
-                            <li className=""><Link to={{pathname:"/socialNetwork" , showComponentSocialNetwork:'guideSocialNetwork'}}>راهنما</Link></li>
+                            <li className=""><Link to="/socialNetwork/login">ورود</Link></li>
+                            <li className=""><Link to="/socialNetwork/register">ثبت نام</Link></li>
+                            <li className=""><Link to="/socialNetwork/guide">راهنما</Link></li>
                         </ul>
                     </li>
                     <li className=""id="shopLiPc"onClick={this.showUlSubPc}>
@@ -71,8 +71,8 @@ class NavPc extends Component {
                             </div>
                         </div>
                         <ul className="menuPcUlSub">
-                            <li className=""><Link to="/shop/addShop">ورود </Link></li>
-                            <li className=""><Link to="">ثبت نام</Link></li>
+                            <li className=""><Link to="/shop/login">ورود </Link></li>
+                            <li className=""><Link to="/shop/addShop">ثبت نام</Link></li>
                             <li className=""><Link to="">راهنما</Link></li>
                         </ul>
                     </li>

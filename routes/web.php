@@ -24,8 +24,13 @@ Route::resource('/pros','ProController');
 Route::get('{any}', function () {
     return view('home'); // or wherever your React app is bootstrapped.
 })->where('any', '.*');
-Route::resource('/order','OrderController');
-Route::resource('/shop','ShopController');
+
+Route::post('/shop/register','Shop\Auth\RegisterController@register');
+Route::get('/shop/loguot','Shop\Auth\LoginController@loguot');
+
+Route::resource('/order','OrderController')->middleware('shop');
+// Route::resource('/shop','ShopController');
+Route::resource('/socialNetwork','SocialNetworkController');
 
 
 // Route::get('/{path?}', function($path = null){return View::make('home');})->where('path', '.*'); 
